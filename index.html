@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filipe Oliveira – Analytics Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Analytics portfolio of Filipe Oliveira – dashboards, data storytelling and F1 2025 season analysis in Power BI." />
+
+  <style>
+    :root {
+      --bg: #05070b;
+      --panel: #10131b;
+      --panel-soft: #181c24;
+      --accent: #ff8f1f;
+      --accent-soft: #ffb15e;
+      --text-main: #f5f7ff;
+      --text-muted: #9ca3bc;
+      --border: #272b36;
+      --pill: #1f2430;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at 0 0, #181d2a 0, #05070b 55%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .tagline {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--pill);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .hero-left h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-left h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 520px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--pill);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 9px 18px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      color: #14151a;
+      box-shadow: 0 0 18px rgba(255, 143, 31, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(255, 143, 31, 0.55);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at 0 0, #252b3a 0, #10131b 55%);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 8px;
+    }
+
+    .hero-right-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-right-main {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .stat-card {
+      background: rgba(11, 12, 18, 0.9);
+      border-radius: 12px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 1.08rem;
+      font-weight: 600;
+    }
+
+    .stat-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    section {
+      background: var(--panel);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 20px 20px 18px;
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    section h2 {
+      font-size: 1.06rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .list li {
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .list-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      flex-shrink: 0;
+    }
+
+    .dashboard-frame {
+      background: #05070b;
+      border-radius: 14px;
+      border: 1px dashed #3a4052;
+      padding: 12px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .dashboard-frame span {
+      color: var(--accent-soft);
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent-soft);
+    }
+
+    @media (max-width: 860px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <div class="brand">Filipe Oliveira</div>
+        <div class="tagline">Analytics · Dashboards · F1 Data Storytelling</div>
+      </div>
+      <div class="pill">Portfolio Preview</div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-left">
+        <h1>
+          Turning <span>data</span> into clear,
+          interactive stories.
+        </h1>
+        <p class="hero-subtitle">
+          I build clean, high-impact dashboards and analytics experiences with
+          a strong focus on usability and design. This site showcases my work –
+          including a full Power BI report covering the F1 2025 season.
+        </p>
+
+        <div class="hero-badges">
+          <div class="hero-badge">Power BI · DAX · Data Modelling</div>
+          <div class="hero-badge">F1 2025 Season Dashboard</div>
+          <div class="hero-badge">UX-focused Reporting</div>
+        </div>
+
+        <div class="cta-row">
+          <a href="#projects" class="btn-primary">View featured project</a>
+          <a href="#contact" class="btn-ghost">Get in touch</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-right-header">
+          <span>Current Highlight</span>
+          <span>F1 2025 · Title Fight Scenario</span>
+        </div>
+        <div class="hero-right-main">
+          <div class="stat-card">
+            <div class="stat-label">Leading driver</div>
+            <div class="stat-value">Lando Norris</div>
+            <div class="stat-sub">Dynamic KPI card driven by model</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Leading team</div>
+            <div class="stat-value">McLaren</div>
+            <div class="stat-sub">Cumulative points over the season</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Pages</div>
+            <div class="stat-value">3</div>
+            <div class="stat-sub">Season overview, Race detail & scenarios</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="grid" id="projects">
+      <section>
+        <h2>Featured Project – F1 2025 Season</h2>
+        <div class="section-body">
+          <p>
+            This Power BI report explores the entire 2025 Formula 1 season with
+            a TV-style design. It includes a season overview, race deep dives
+            and an interactive title-fight scenario where users can simulate the
+            final races and see who becomes World Champion.
+          </p>
+
+          <ul class="list">
+            <li>
+              <span class="list-bullet"></span>
+              <span>Custom data model built from APIs and web scraping.</span>
+            </li>
+            <li>
+              <span class="list-bullet"></span>
+              <span>Season overview with driver & constructor standings, cumulative points and performance scatterplots.</span>
+            </li>
+            <li>
+              <span class="list-bullet"></span>
+              <span>Race detail page with grid vs finish analysis and position-change visuals.</span>
+            </li>
+            <li>
+              <span class="list-bullet"></span>
+              <span>Title fight scenario simulator powered by DAX measures and what-if parameters.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Interactive Dashboard Preview</h2>
+        <div class="section-body">
+          <div class="dashboard-frame">
+            <p>
+              This is where the live Power BI report will appear once
+              <span>Publish to web</span> is enabled.
+            </p>
+            <p style="margin-top: 6px;">
+              Replace this placeholder with your Power BI <code>&lt;iframe&gt;</code>
+              embed code.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section id="contact" style="margin-top: 24px;">
+      <h2>Contact</h2>
+      <div class="section-body">
+        <p>
+          Interested in dashboards, analytics or data storytelling? Feel free to
+          reach out – I’m always open to talking about F1 data, BI projects and
+          reporting design.
+        </p>
+        <ul class="list">
+          <li>
+            <span class="list-bullet"></span>
+            <span><strong>Email:</strong> (your future professional email here)</span>
+          </li>
+          <li>
+            <span class="list-bullet"></span>
+            <span><strong>LinkedIn:</strong> Add your LinkedIn profile URL</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Filipe Oliveira. All rights reserved.</span>
+      <span>Designed &amp; built by Filipe – F1-inspired analytics.</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
