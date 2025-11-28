@@ -39,7 +39,7 @@
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 32px 20px 64px;
     }
@@ -257,20 +257,6 @@
       flex-shrink: 0;
     }
 
-    .dashboard-frame {
-      background: #05070b;
-      border-radius: 14px;
-      border: 1px dashed #3a4052;
-      padding: 12px;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    .dashboard-frame span {
-      color: var(--accent-soft);
-    }
-
     footer {
       margin-top: 32px;
       padding-top: 16px;
@@ -287,6 +273,40 @@
       color: var(--accent-soft);
     }
 
+    /* --- Dashboard wide section --- */
+    .dashboard-wide {
+      margin-top: 28px;
+    }
+
+    .dashboard-lead {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .dashboard-embed-shell {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0 8px;
+    }
+
+    .dashboard-embed-card {
+      width: 100%;
+      max-width: 1400px;
+      background-color: #05070b;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 0 28px rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .dashboard-embed-card iframe {
+      width: 100%;
+      height: 720px; /* tweak this if you want it taller/shorter */
+      border: 0;
+      border-radius: 12px;
+    }
+
     @media (max-width: 860px) {
       header {
         flex-direction: column;
@@ -299,6 +319,10 @@
 
       .grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .dashboard-embed-card iframe {
+        height: 520px;
       }
     }
   </style>
@@ -362,6 +386,7 @@
       </aside>
     </div>
 
+    <!-- Grid now only wraps the text overview -->
     <div class="grid" id="projects">
       <section>
         <h2>Featured Project – F1 2025 Season</h2>
@@ -393,41 +418,28 @@
           </ul>
         </div>
       </section>
-
-<section>
-  <h2>Interactive Dashboard Preview</h2>
-  <div class="section-body">
-
-    <!-- NEW Wide Card Dashboard Embed -->
-    <div style="
-      display: flex;
-      justify-content: center;
-      padding: 40px 0;
-    ">
-      <div style="
-        width: 100%;
-        max-width: 1400px;
-        background-color: #0d0d0d;
-        padding: 25px;
-        border-radius: 14px;
-        box-shadow: 0 0 25px rgba(0,0,0,0.45);
-        border: 1px solid rgba(255,255,255,0.05);
-      ">
-        <iframe
-            title="F1_2025"
-            width="100%"
-            height="850px"
-            src="https://app.powerbi.com/view?r=eyJrIjoiOWQ4ZjNjNDMtZTUxZS00OWE4LTk4ZmEtOGY1N2JlMjIyMzgxIiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
-            frameborder="0"
-            style="border-radius: 12px;"
-            allowFullScreen="true">
-        </iframe>
-      </div>
     </div>
 
-  </div>
-</section>
-</div> 
+    <!-- Full-width, centered dashboard card -->
+    <section class="dashboard-wide" id="dashboard">
+      <h2>Interactive Dashboard Preview</h2>
+      <div class="section-body">
+        <p class="dashboard-lead">
+          Explore the full F1 2025 Power BI report directly below – fully
+          interactive with all three pages: season overview, race detail and the title fight simulator.
+        </p>
+
+        <div class="dashboard-embed-shell">
+          <div class="dashboard-embed-card">
+            <iframe
+              title="F1_2025"
+              src="https://app.powerbi.com/view?r=eyJrIjoiOWQ4ZjNjNDMtZTUxZS00OWE4LTk4ZmEtOGY1N2JlMjIyMzgxIiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="contact" style="margin-top: 24px;">
       <h2>Contact</h2>
@@ -461,4 +473,3 @@
   </script>
 </body>
 </html>
-
