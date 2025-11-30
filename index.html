@@ -176,43 +176,40 @@
     }
 
     .hero-right-main {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
       margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .stat-card {
-      background: rgba(11, 12, 18, 0.9);
-      border-radius: 12px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-    }
-
-    .stat-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    .hero-feature-text {
+      font-size: 0.86rem;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      line-height: 1.5;
     }
 
-    .stat-value {
-      font-size: 1.08rem;
-      font-weight: 600;
+    .hero-feature-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 4px 0 0;
     }
 
-    .stat-sub {
-      font-size: 0.72rem;
+    .hero-feature-list li {
+      font-size: 0.8rem;
       color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
       margin-top: 4px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
-      gap: 24px;
-      margin-top: 32px;
+    .hero-feature-bullet {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      margin-top: 6px;
+      flex-shrink: 0;
     }
 
     section {
@@ -275,7 +272,7 @@
 
     /* --- Dashboard wide section --- */
     .dashboard-wide {
-      margin-top: 28px;
+      margin-top: 12px; /* moved closer to hero */
     }
 
     .dashboard-lead {
@@ -302,7 +299,7 @@
 
     .dashboard-embed-card iframe {
       width: 100%;
-      height: 720px; /* tweak this if you want it taller/shorter */
+      height: 720px;
       border: 0;
       border-radius: 12px;
     }
@@ -314,10 +311,6 @@
       }
 
       .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -365,71 +358,46 @@
         </div>
 
         <div class="cta-row">
-          <a href="#projects" class="btn-primary">View featured project</a>
+          <a href="#dashboard" class="btn-primary">View featured project</a>
           <a href="#contact" class="btn-ghost">Get in touch</a>
         </div>
       </div>
 
+      <!-- Hero right now shows the Featured Project summary -->
       <aside class="hero-right">
         <div class="hero-right-header">
-          <span>Current Highlight</span>
-          <span>F1 2025 · Title Fight Scenario</span>
+          <span>Featured project</span>
+          <span>F1 2025 Season</span>
         </div>
         <div class="hero-right-main">
-          <div class="stat-card">
-            <div class="stat-label">Leading driver</div>
-            <div class="stat-value">Lando Norris</div>
-            <div class="stat-sub">Dynamic KPI card driven by model</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Leading team</div>
-            <div class="stat-value">McLaren</div>
-            <div class="stat-sub">Cumulative points over the season</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Pages</div>
-            <div class="stat-value">3</div>
-            <div class="stat-sub">Season overview, Race detail & scenarios</div>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <!-- Grid now only wraps the text overview -->
-    <div class="grid" id="projects">
-      <section>
-        <h2>Featured Project – F1 2025 Season</h2>
-        <div class="section-body">
-          <p>
-            This Power BI report explores the entire 2025 Formula 1 season with
-            a TV-style design. It includes a season overview, race deep dives
-            and an interactive title-fight scenario where users can simulate the
-            final races and see who becomes World Champion.
+          <p class="hero-feature-text">
+            This Power BI report explores the entire 2025 Formula 1 season with a TV-style design
+            and an interactive title-fight simulator where you can tweak race results and see who
+            becomes World Champion.
           </p>
-
-          <ul class="list">
+          <ul class="hero-feature-list">
             <li>
-              <span class="list-bullet"></span>
+              <span class="hero-feature-bullet"></span>
               <span>Custom data model built from APIs and web scraping.</span>
             </li>
             <li>
-              <span class="list-bullet"></span>
-              <span>Season overview with driver & constructor standings, cumulative points and performance scatterplots.</span>
+              <span class="hero-feature-bullet"></span>
+              <span>Season overview with driver &amp; constructor standings, cumulative points and performance scatterplots.</span>
             </li>
             <li>
-              <span class="list-bullet"></span>
+              <span class="hero-feature-bullet"></span>
               <span>Race detail page with grid vs finish analysis and position-change visuals.</span>
             </li>
             <li>
-              <span class="list-bullet"></span>
+              <span class="hero-feature-bullet"></span>
               <span>Title fight scenario simulator powered by DAX measures and what-if parameters.</span>
             </li>
           </ul>
         </div>
-      </section>
+      </aside>
     </div>
 
-    <!-- Full-width, centered dashboard card -->
+    <!-- Full-width, centered dashboard card – now directly under hero -->
     <section class="dashboard-wide" id="dashboard">
       <h2>Interactive Dashboard Preview</h2>
       <div class="section-body">
