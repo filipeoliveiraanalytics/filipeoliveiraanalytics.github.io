@@ -1,0 +1,11 @@
+<svg width="240" height="100" viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bars -->
+  <rect x="36" y="95" width="16" height="48" fill="#FF8F1F" rx="3"></rect>
+  <rect x="60" y="75" width="16" height="68" fill="#FF8F1F" rx="3"></rect>
+  <rect x="84" y="50" width="16" height="93" fill="#FF8F1F" rx="3"></rect>
+  
+  <!-- FO -->
+  <text x="140" y="102" fill="#FF8F1F" font-size="82" font-family="Segoe UI, sans-serif" font-weight="700">
+    FO
+  </text>
+</svg>
