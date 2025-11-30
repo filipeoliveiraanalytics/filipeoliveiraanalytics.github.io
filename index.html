@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Filipe Oliveira – Analytics Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Analytics portfolio of Filipe Oliveira – dashboards, data storytelling and F1 2025 season analysis in Power BI and Qlik." />
+  <meta name="description" content="Analytics portfolio of Filipe Oliveira – Data & BI professional with 7+ years of experience across aviation, financial services and consumer goods. Power BI, Qlik Sense, Tableau and F1 2025 season analysis." />
 
   <style>
     :root {
@@ -48,7 +48,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
       gap: 16px;
     }
 
@@ -75,6 +75,25 @@
       color: var(--text-muted);
     }
 
+    /* Top navigation */
+    .top-nav {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .top-nav a {
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .top-nav a:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+    }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
@@ -94,7 +113,7 @@
     .hero-subtitle {
       color: var(--text-muted);
       font-size: 0.98rem;
-      max-width: 520px;
+      max-width: 620px;
       line-height: 1.5;
       margin-bottom: 18px;
     }
@@ -272,7 +291,7 @@
 
     /* --- Dashboard wide section --- */
     .dashboard-wide {
-      margin-top: 12px; /* moved closer to hero */
+      margin-top: 12px;
     }
 
     .dashboard-lead {
@@ -299,7 +318,7 @@
 
     .dashboard-embed-card iframe {
       width: 100%;
-      height: 720px;
+      height: 680px; /* slightly shorter to reduce white bar */
       border: 0;
       border-radius: 12px;
     }
@@ -308,6 +327,10 @@
       header {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .top-nav {
+        flex-wrap: wrap;
       }
 
       .hero {
@@ -339,6 +362,12 @@
       <div class="pill">Portfolio Preview</div>
     </header>
 
+    <nav class="top-nav">
+      <a href="#dashboard">Featured project</a>
+      <a href="#about">Profile</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <div class="hero">
       <div class="hero-left">
         <h1>
@@ -346,17 +375,17 @@
           interactive stories.
         </h1>
         <p class="hero-subtitle">
-          I’m a data professional with 7+ years of experience across different
-          countries and industries, building clean, high-impact dashboards and
-          analytics experiences with a strong focus on usability and design.
-          This site showcases my work – including a full Power BI report
-          covering the F1 2025 season.
+          Data &amp; Business Intelligence professional with 7+ years of experience
+          across aviation, financial services and consumer goods. I translate business
+          needs into data-driven insights using tools like Qlik Sense, Power BI and
+          Tableau – with a strong focus on usability, automation and cross-functional
+          collaboration.
         </p>
 
         <div class="hero-badges">
-          <div class="hero-badge">Power BI · Qlik · DAX · Data Modelling</div>
-          <div class="hero-badge">Cross-industry analytics experience</div>
-          <div class="hero-badge">UX-focused Reporting & Storytelling</div>
+          <div class="hero-badge">Qlik Sense · Power BI · Tableau</div>
+          <div class="hero-badge">Aviation · Financial Services · Consumer Goods</div>
+          <div class="hero-badge">Data Product Ownership &amp; BI Leadership</div>
         </div>
 
         <div class="cta-row">
@@ -365,7 +394,7 @@
         </div>
       </div>
 
-      <!-- Hero right now shows the Featured Project summary -->
+      <!-- Hero right: Featured project summary -->
       <aside class="hero-right">
         <div class="hero-right-header">
           <span>Featured project</span>
@@ -399,7 +428,7 @@
       </aside>
     </div>
 
-    <!-- Full-width, centered dashboard card – now directly under hero -->
+    <!-- Full-width, centered dashboard card -->
     <section class="dashboard-wide" id="dashboard">
       <h2>Interactive Dashboard Preview</h2>
       <div class="section-body">
@@ -415,8 +444,44 @@
               src="https://app.powerbi.com/view?r=eyJrIjoiOWQ4ZjNjNDMtZTUxZS00OWE4LTk4ZmEtOGY1N2JlMjIyMzgxIiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
               allowfullscreen="true">
             </iframe>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px; text-align:right;">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiOWQ4ZjNjNDMtZTUxZS00OWE4LTk4ZmEtOGY1N2JlMjIyMzgxIiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
+                 target="_blank" rel="noopener noreferrer"
+                 style="color:var(--accent-soft);">
+                Open report in full screen →
+              </a>
+            </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Profile / About section -->
+    <section id="about" style="margin-top: 24px;">
+      <h2>Profile</h2>
+      <div class="section-body">
+        <p>
+          I specialise in turning messy business questions into clear, visual stories –
+          from KPI dashboards to self-service reporting and data products.
+        </p>
+        <ul class="list">
+          <li>
+            <span class="list-bullet"></span>
+            <span>7+ years designing and delivering BI solutions across aviation, financial services and consumer goods.</span>
+          </li>
+          <li>
+            <span class="list-bullet"></span>
+            <span>Hands-on with Qlik Sense, Power BI, Tableau, SQL and data modelling.</span>
+          </li>
+          <li>
+            <span class="list-bullet"></span>
+            <span>Experienced in Agile product ownership, team leadership and cross-functional collaboration.</span>
+          </li>
+          <li>
+            <span class="list-bullet"></span>
+            <span>Passionate about innovation, automation and continuous learning in data technology.</span>
+          </li>
+        </ul>
       </div>
     </section>
 
