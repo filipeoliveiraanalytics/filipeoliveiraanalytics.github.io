@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.png" />
   <meta charset="UTF-8" />
   <title>Filipe Oliveira – Analytics Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,26 +57,32 @@
     .site-brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
     }
+    
 
     .logo-svg {
-      height: 40px;
-      width: auto;
-      flex-shrink: 0;
+      height: 32px;
+      margin-right: 4px;
     }
+    .brand-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15; /* tighter vertical spacing */
+}
 
     .brand {
-      font-size: 0.95rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
 
-    .tagline {
-      font-weight: 600;
-      color: var(--text-main);
-    }
+.tagline {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
 
     .pill {
       padding: 6px 12px;
@@ -89,13 +97,13 @@
     }
 
     /* Top navigation */
-    .top-nav {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+.top-nav {
+  margin-top: 4px; /* closer to header */
+  display: flex;
+  gap: 14px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
 
     .top-nav a {
       padding-bottom: 3px;
@@ -374,25 +382,33 @@
 </head>
 <body>
   <div class="page">
-    <header>
-      <div class="site-brand">
-        <!-- Inline logo SVG -->
-        <svg class="logo-svg" viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bars -->
-          <rect x="36" y="95" width="16" height="48" fill="#FF8F1F" rx="3"/>
-          <rect x="60" y="75" width="16" height="68" fill="#FF8F1F" rx="3"/>
-          <rect x="84" y="50" width="16" height="93" fill="#FF8F1F" rx="3"/>
-          <!-- FO text -->
-          <text x="140" y="104" fill="#FF8F1F" font-size="82" font-family="Segoe UI, sans-serif" font-weight="700">
-            FO
-          </text>
-        </svg>
+   <header>
+  <div class="site-brand">
+    <!-- Inline SVG logo -->
+    <svg class="logo-svg" viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
+      <rect x="36" y="95" width="16" height="48" fill="#FF8F1F" rx="3"/>
+      <rect x="60" y="75" width="16" height="68" fill="#FF8F1F" rx="3"/>
+      <rect x="84" y="50" width="16" height="93" fill="#FF8F1F" rx="3"/>
+      <text x="140" y="104" fill="#FF8F1F" font-size="82" font-family="Segoe UI, sans-serif" font-weight="700">
+        FO
+      </text>
+    </svg>
 
-        <div>
-          <div class="brand">Filipe Oliveira</div>
-          <div class="tagline">Analytics · Dashboards · F1 Data Storytelling</div>
-        </div>
-      </div>
+    <div class="brand-block">
+      <div class="brand">Filipe Oliveira</div>
+      <div class="tagline">Analytics · Dashboards · F1 Data Storytelling</div>
+    </div>
+  </div>
+
+  <div class="pill">Portfolio Preview</div>
+</header>
+
+<nav class="top-nav">
+  <a href="#dashboard">Featured project</a>
+  <a href="#about">Profile</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 
       <div class="pill">Portfolio Preview</div>
     </header>
