@@ -499,11 +499,12 @@
               allowfullscreen="true">
             </iframe>
             <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px; text-align:right;">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiOWQ4ZjNjNDMtZTUxZS00OWE4LTk4ZmEtOGY1N2JlMjIyMzgxIiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
-                 target="_blank" rel="noopener noreferrer"
-                 style="color:var(--accent-soft);">
-                Open report in full screen →
-              </a>
+<a id="fullscreenLink"
+   href="https://app.powerbi.com/view?r=eyJrIjoiOWQ4ZjNjNDMtZTUxZS00OWE4LTk4ZmEtOGY1N2JlMjIyMzgxIiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
+   target="_blank" rel="noopener noreferrer"
+   style="color:var(--accent-soft);">
+   Open report in full screen →
+</a>
             </p>
           </div>
         </div>
@@ -573,5 +574,21 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script>
+  // Track clicks on the "Open in full screen" link
+  document.addEventListener("DOMContentLoaded", function () {
+    const fsLink = document.getElementById("fullscreenLink");
+
+    if (fsLink) {
+      fsLink.addEventListener("click", function () {
+        gtag('event', 'open_fullscreen_report', {
+          event_category: 'engagement',
+          event_label: 'Full screen Power BI report clicked'
+        });
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
