@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cookie Policy – Filipe Oliveira Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cookie Policy for filipeoliveiraanalytics.com" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    :root {
+      --bg: #05070b;
+      --panel: #10131b;
+      --accent: #ff8f1f;
+      --accent-soft: #ffb15e;
+      --text-main: #f5f7ff;
+      --text-muted: #9ca3bc;
+      --border: #272b36;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 0 0,#181d2a 0,#05070b 55%);color:var(--text-main)}
+    .page{max-width:900px;margin:0 auto;padding:32px 20px 64px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}
+    a{color:var(--accent-soft)}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 22px 40px rgba(0,0,0,.6)}
+    h1{margin:0 0 8px;font-size:1.6rem}
+    .muted{color:var(--text-muted);line-height:1.6}
+    h2{margin:18px 0 8px;font-size:1.05rem}
+    ul{margin:8px 0 0 18px;color:var(--text-muted);line-height:1.6}
+    code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:8px}
+    footer{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div><strong>Filipe Oliveira Analytics</strong></div>
+      <div>
+        <a href="/">Home</a> ·
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </header>
+
+    <div class="card">
+      <h1>Cookie Policy</h1>
+      <p class="muted"><strong>Last updated:</strong> 2025-12-24</p>
+
+      <h2>1. What are cookies?</h2>
+      <p class="muted">
+        Cookies are small text files stored on your device. They help websites work correctly and can be used for analytics.
+      </p>
+
+      <h2>2. Cookies we use</h2>
+      <p class="muted">
+        This website uses the following categories:
+      </p>
+
+      <h3 style="margin-top:10px;">Essential</h3>
+      <p class="muted">
+        These cookies are required to remember your cookie choice.
+        They are stored as local site storage using <code>localStorage</code>:
+      </p>
+      <ul>
+        <li><code>fo_cookie_consent</code> – stores your analytics consent choice.</li>
+      </ul>
+
+      <h3 style="margin-top:10px;">Analytics (Google Analytics 4)</h3>
+      <p class="muted">
+        If you accept analytics cookies, we activate Google Analytics 4 to understand usage and improve the site.
+        Typical Google Analytics cookies include:
+      </p>
+      <ul>
+        <li><code>_ga</code> – distinguishes users.</li>
+        <li><code>_ga_*</code> – persists session state.</li>
+      </ul>
+      <p class="muted">
+        Analytics cookies are only set after your consent via the cookie banner.
+      </p>
+
+      <h2>3. How to change your choice</h2>
+      <p class="muted">
+        You can withdraw consent by clearing site data in your browser (cookies/site storage) for this website,
+        then reloading the page to see the banner again.
+      </p>
+
+      <h2>4. Third parties</h2>
+      <p class="muted">
+        Google processes analytics data according to its policies:
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+      </p>
+    </div>
+
+    <footer>
+      <span>© <span id="year"></span> Filipe Oliveira Analytics</span>
+      <span><a href="/privacy.html">Privacy Policy</a></span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
