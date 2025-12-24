@@ -392,16 +392,161 @@
     }
   </style>
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN7QRXXCNH"></script>
+  <!-- ===== Cookie Consent (GDPR) ===== -->
+  <style>
+    .cookie-banner{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 9998;
+      display: none;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(16,19,27,.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 40px rgba(0,0,0,.55);
+      max-width: var(--max, 1200px);
+      margin: 0 auto;
+    }
+    .cookie-banner p{
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-size: 14px;
+    }
+    .cookie-banner a{
+      color: var(--accent-soft);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .cookie-actions{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex-shrink: 0;
+    }
+    .cookie-actions button{
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+      white-space: nowrap;
+    }
+    .cookie-accept{
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      color: #14151a;
+      box-shadow: 0 0 18px rgba(255, 143, 31, 0.35);
+    }
+    .cookie-accept:hover{ transform: translateY(-1px); box-shadow: 0 0 26px rgba(255,143,31,.5); }
+    .cookie-reject{
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+    .cookie-reject:hover{ border-color: var(--accent-soft); color: var(--accent-soft); }
+  </style>
+
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NN7QRXXCNH');
+    /**
+     * Google Analytics (GA4) - loaded only after consent.
+     * Stores choice in localStorage: fo_cookie_consent = 'accepted' | 'rejected'
+     */
+    (function(){
+      const CONSENT_KEY = 'fo_cookie_consent';
+      const GA_ID = 'G-NN7QRXXCNH';
+
+      // Stub gtag until GA is loaded (or forever if rejected)
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+      function hasConsent(){
+        return localStorage.getItem(CONSENT_KEY) === 'accepted';
+      }
+
+      function loadGA(){
+        if (window.__ga_loaded) return;
+        window.__ga_loaded = true;
+
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+        document.head.appendChild(s);
+
+        window.gtag('js', new Date());
+        // NOTE: IP anonymization is handled by GA4 automatically; we also avoid ad features.
+        window.gtag('config', GA_ID, {
+          // Avoid sending full IP; GA4 uses IP for geo then discards. We avoid extra identifiers.
+          // Keeping settings minimal for a portfolio site.
+          allow_google_signals: false,
+          allow_ad_personalization_signals: false
+        });
+      }
+
+      function showBanner(){
+        const banner = document.getElementById('cookieBanner');
+        if (banner) banner.style.display = 'flex';
+      }
+      function hideBanner(){
+        const banner = document.getElementById('cookieBanner');
+        if (banner) banner.style.display = 'none';
+      }
+
+      window.__cookieConsent = {
+        accept: function(){
+          localStorage.setItem(CONSENT_KEY, 'accepted');
+          hideBanner();
+          loadGA();
+        },
+        reject: function(){
+          localStorage.setItem(CONSENT_KEY, 'rejected');
+          hideBanner();
+        },
+        reset: function(){
+          localStorage.removeItem(CONSENT_KEY);
+          showBanner();
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', function(){
+        const choice = localStorage.getItem(CONSENT_KEY);
+        if (choice === 'accepted') {
+          loadGA();
+        } else if (choice === 'rejected') {
+          // Do nothing
+        } else {
+          showBanner();
+        }
+      });
+    })();
   </script>
+
 </head>
 <body>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <p>
+      I use <strong>Google Analytics</strong> to understand how visitors use the site.
+      You can accept or reject analytics cookies. Read the
+      <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-reject" type="button" onclick="window.__cookieConsent.reject()">Reject</button>
+      <button class="cookie-accept" type="button" onclick="window.__cookieConsent.accept()">Accept</button>
+    </div>
+  </div>
+
   <div class="page">
     <header>
       <div class="brand-left">
@@ -565,30 +710,41 @@
       </div>
     </section>
 
+    
     <footer>
       <span>© <span id="year"></span> Filipe Oliveira. All rights reserved.</span>
+      <span>
+        <a href="/privacy.html">Privacy</a> ·
+        <a href="/cookies.html">Cookies</a>
+      </span>
       <span>Designed &amp; built by Filipe – F1-inspired analytics.</span>
     </footer>
+
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
   <script>
-  // Track clicks on the "Open in full screen" link
+  // Track clicks on the "Open in full screen" link (only if analytics cookies accepted)
   document.addEventListener("DOMContentLoaded", function () {
     const fsLink = document.getElementById("fullscreenLink");
+    if (!fsLink) return;
 
-    if (fsLink) {
-      fsLink.addEventListener("click", function () {
+    fsLink.addEventListener("click", function () {
+      // Consent is stored by the banner logic above
+      try {
+        if (localStorage.getItem('fo_cookie_consent') !== 'accepted') return;
+      } catch(e) { return; }
+
+      if (typeof gtag === 'function') {
         gtag('event', 'open_fullscreen_report', {
           event_category: 'engagement',
           event_label: 'Full screen Power BI report clicked'
         });
-      });
-    }
+      }
+    });
   });
 </script>
-
 </body>
 </html>
