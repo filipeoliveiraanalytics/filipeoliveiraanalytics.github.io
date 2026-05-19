@@ -3,26 +3,30 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Filipe Oliveira | Analytics Portfolio, Power BI & F1 Data Projects</title>
+  <title>Filipe Oliveira Analytics | F1 2026 GP Predictor, Power BI & Fantasy Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Analytics portfolio of Filipe Oliveira, a Data and BI professional. Featuring the F1 2026 Next GP Predictor and interactive data storytelling dashboards in Power BI and Tableau." />
+    content="Analytics portfolio of Filipe Oliveira. Explore the F1 2026 GP Predictor, live Canada GP predictions, Power BI dashboards and the GP Fantasy Predictor fantasy optimizer." />
+  <meta name="keywords"
+    content="Filipe Oliveira Analytics, F1 2026 GP Predictor, Canada GP predictions, F1 Fantasy optimizer, GP Fantasy Predictor, Power BI portfolio, F1 data analytics, Monte Carlo F1 prediction" />
+  <meta name="author" content="Filipe Oliveira" />
+  <meta name="robots" content="index, follow" />
 
   <link rel="canonical" href="https://www.filipeoliveiraanalytics.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Filipe Oliveira | Analytics Portfolio, Power BI & F1 Data Projects" />
+  <meta property="og:title" content="Filipe Oliveira Analytics | F1 2026 GP Predictor & Fantasy Tools" />
   <meta property="og:description"
-    content="Analytics portfolio of Filipe Oliveira. F1 2026 Race Predictor using Python and Power BI, plus interactive data storytelling dashboards." />
+    content="Explore live Canada GP predictions, F1 2026 GP Predictor dashboards, Monte Carlo race modelling and the GP Fantasy Predictor optimizer." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.filipeoliveiraanalytics.com/" />
   <meta property="og:image" content="https://www.filipeoliveiraanalytics.com/og-image.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Filipe Oliveira | Analytics Portfolio, Power BI & F1 Data Projects" />
+  <meta name="twitter:title" content="Filipe Oliveira Analytics | F1 2026 GP Predictor & Fantasy Tools" />
   <meta name="twitter:description"
-    content="Analytics portfolio of Filipe Oliveira. F1 2026 Race Predictor using Python and Power BI, plus interactive data storytelling dashboards." />
+    content="Live Canada GP predictions, F1 2026 GP Predictor dashboards and a fantasy optimizer powered by prediction modelling." />
   <meta name="twitter:image" content="https://www.filipeoliveiraanalytics.com/og-image.jpg" />
 
   <!-- Structured Data (JSON-LD) -->
@@ -35,7 +39,7 @@
         "@id": "https://www.filipeoliveiraanalytics.com/#website",
         "url": "https://www.filipeoliveiraanalytics.com/",
         "name": "Filipe Oliveira Analytics",
-        "description": "Analytics portfolio of Filipe Oliveira, a Data and BI professional."
+        "description": "Analytics portfolio featuring F1 prediction modelling, Power BI dashboards and fantasy optimization tools."
       },
       {
         "@type": "Person",
@@ -43,6 +47,22 @@
         "name": "Filipe Oliveira",
         "jobTitle": "Data & Business Intelligence Professional",
         "url": "https://www.filipeoliveiraanalytics.com/"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://www.filipeoliveiraanalytics.com/#f1-2026-gp-predictor",
+        "name": "F1 2026 GP Predictor",
+        "url": "https://www.filipeoliveiraanalytics.com/#predictor-2026",
+        "applicationCategory": "SportsApplication",
+        "description": "Power BI dashboard and Python model for F1 2026 Grand Prix predictions, including live Canada GP forecasts."
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://gpfantasypredictor.com/#app",
+        "name": "GP Fantasy Predictor",
+        "url": "https://gpfantasypredictor.com/",
+        "applicationCategory": "SportsApplication",
+        "description": "F1 Fantasy optimizer powered by GP prediction modelling."
       }
     ]
   }
@@ -227,7 +247,8 @@
     }
 
     .btn-primary,
-    .btn-ghost {
+    .btn-ghost,
+    .btn-fantasy {
       border-radius: 999px;
       font-size: 0.9rem;
       font-weight: 500;
@@ -259,6 +280,42 @@
     .btn-ghost:hover {
       border-color: var(--accent-soft);
       color: var(--accent-soft);
+    }
+
+    .btn-fantasy {
+      background: #14c8bd;
+      color: #05070b;
+      box-shadow: 0 0 18px rgba(20, 200, 189, 0.28);
+    }
+
+    .btn-fantasy:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 26px rgba(20, 200, 189, 0.46);
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 6px 11px;
+      background: rgba(20, 200, 189, 0.12);
+      border: 1px solid rgba(20, 200, 189, 0.38);
+      color: #14c8bd;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .live-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #14c8bd;
+      box-shadow: 0 0 14px rgba(20, 200, 189, 0.8);
     }
 
     /* ===== Hero right card ===== */
@@ -299,6 +356,30 @@
       list-style: none;
       padding-left: 0;
       margin: 4px 0 0;
+    }
+
+    .fantasy-callout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      margin: 22px 0 24px;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(20, 200, 189, 0.32);
+      background: radial-gradient(circle at 0 0, rgba(20, 200, 189, 0.14), rgba(16, 19, 27, 0.9) 58%);
+    }
+
+    .fantasy-callout h3 {
+      margin-bottom: 6px;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .fantasy-callout p {
+      color: var(--text-muted);
+      line-height: 1.55;
+      font-size: 0.9rem;
     }
 
     .hero-feature-list li {
@@ -433,6 +514,10 @@
       }
 
       .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .fantasy-callout {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -652,6 +737,7 @@
 
     <nav class="top-nav">
       <a href="#predictor-2026">Featured project</a>
+      <a href="https://gpfantasypredictor.com/" class="fantasyLink" target="_blank" rel="noopener noreferrer">Fantasy optimizer</a>
       <a href="#dashboard">Portfolio</a>
       <a href="#about">Profile</a>
       <a href="#contact">Contact</a>
@@ -679,6 +765,8 @@
 
         <div class="cta-row">
           <a href="#predictor-2026" class="btn-primary">View 2026 Predictor</a>
+          <a href="https://gpfantasypredictor.com/" class="btn-fantasy fantasyLink" target="_blank"
+            rel="noopener noreferrer">Optimize F1 Fantasy Team</a>
           <a href="#dashboard" class="btn-ghost">View 2025 Dashboard</a>
         </div>
       </div>
@@ -686,12 +774,13 @@
       <aside class="hero-right">
         <div class="hero-right-header">
           <span>Featured project</span>
-          <span>F1 2026 Next GP Predictor</span>
+          <span>F1 2026 GP Predictor</span>
         </div>
         <div class="hero-right-main">
+          <span class="live-badge">Canada predictions live</span>
           <p class="hero-feature-text">
-            A brand new predictor engine built with Python (v5.4.3) and visualised in Power BI. It predicts Win %, DNF
-            %, and final positions using Monte Carlo simulations.
+            A Python-powered predictor engine visualised in Power BI. Canada GP forecasts are live, with Win %, DNF %,
+            podium likelihood, finishing position projections and circuit-fit context.
           </p>
           <ul class="hero-feature-list">
             <li>
@@ -713,12 +802,12 @@
     </div>
 
     <section class="dashboard-wide" id="predictor-2026">
-      <h2>F1 2026 Next GP Predictor</h2>
+      <h2>F1 2026 GP Predictor</h2>
       <div class="section-body">
         <p class="dashboard-lead">
           This dashboard blends Python-based feature engineering and Monte Carlo race simulations into a Power BI
-          product focused on the next Grand Prix. It includes a premium F1-inspired interface and three pages designed
-          for both storytelling and explainability.
+          product covering race-weekend forecasts, circuit analysis and prediction-vs-result tracking.
+          <strong style="color: var(--accent-soft);">Canada GP predictions are now live.</strong>
         </p>
         <ul class="list" style="margin-bottom: 24px;">
           <li>
@@ -748,6 +837,18 @@
             every Free Practice and Qualifying session.
           </li>
         </ul>
+
+        <div class="fantasy-callout">
+          <div>
+            <h3>Playing F1 Fantasy?</h3>
+            <p>
+              Use the GP Fantasy Predictor to turn the latest GP projections into an optimized fantasy lineup, including
+              budget, transfer limits and the recommended driver boost.
+            </p>
+          </div>
+          <a href="https://gpfantasypredictor.com/" class="btn-fantasy fantasyLink" target="_blank"
+            rel="noopener noreferrer">Open GP Fantasy Predictor</a>
+        </div>
 
         <div class="dashboard-embed-shell">
           <div class="dashboard-embed-card">
@@ -868,6 +969,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const fsLink2025 = document.getElementById("fullscreenLink");
       const fsLink2026 = document.getElementById("fullscreenLink2026");
+      const fantasyLinks = document.querySelectorAll(".fantasyLink");
 
       function trackClick(label) {
         // Consent is stored by the banner logic above
@@ -894,6 +996,21 @@
           trackClick('Full screen Power BI report clicked (2026)');
         });
       }
+
+      fantasyLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          try {
+            if (localStorage.getItem('fo_cookie_consent') !== 'accepted') return;
+          } catch (e) { return; }
+
+          if (typeof gtag === 'function') {
+            gtag('event', 'open_gp_fantasy_predictor', {
+              event_category: 'engagement',
+              event_label: link.textContent.trim()
+            });
+          }
+        });
+      });
     });
   </script>
 </body>
