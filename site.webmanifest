@@ -1,0 +1,16 @@
+{
+  "name": "Filipe Oliveira Analytics",
+  "short_name": "FO Analytics",
+  "description": "BI portfolio featuring F1 prediction models, Power BI dashboards and forecasting tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070b",
+  "theme_color": "#05070b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
