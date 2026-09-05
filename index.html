@@ -335,6 +335,16 @@
       box-shadow: 0 0 14px rgba(20, 200, 189, 0.8);
     }
 
+    .model-status {
+      margin-top: 2px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .model-status strong {
+      color: var(--text-main);
+    }
+
     /* ===== Hero right card ===== */
 
     .hero-right {
@@ -544,6 +554,315 @@
     }
   </style>
 
+  <!-- ===== Editorial redesign ===== -->
+  <style>
+    :root {
+      --bg: #f2f4f5;
+      --panel: #ffffff;
+      --panel-soft: #e6eaed;
+      --accent: #ef233c;
+      --accent-soft: #0066cc;
+      --text-main: #111319;
+      --text-muted: #59636e;
+      --border: #c8cfd4;
+      --pill: #111319;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .page {
+      max-width: 1320px;
+      padding: 0 32px 72px;
+    }
+
+    header {
+      min-height: 80px;
+      margin: 0 -32px;
+      padding: 0 32px;
+      border-bottom: 2px solid var(--text-main);
+      background: var(--panel);
+    }
+
+    .logo-bar { background: var(--accent); }
+    .brand-name { color: var(--text-main); font-weight: 800; letter-spacing: 0.09em; }
+    .brand-tagline { color: var(--text-muted); }
+    .pill {
+      border-radius: 0;
+      border-color: var(--text-main);
+      background: var(--text-main);
+      color: #ffffff;
+    }
+
+    .top-nav {
+      margin: 0 -32px;
+      padding: 13px 32px;
+      gap: 22px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .top-nav a { padding-bottom: 0; }
+    .top-nav a:hover { border-color: transparent; color: var(--accent); }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.8fr);
+      gap: 0;
+      margin: 30px 0 52px;
+      border-top: 10px solid var(--accent);
+      background: #111319;
+      color: #ffffff;
+    }
+
+    .hero-left { padding: 48px; }
+    .hero-left h1 {
+      max-width: 740px;
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      line-height: 0.89;
+      letter-spacing: 0;
+      margin-bottom: 24px;
+    }
+
+    .hero-left h1 span { color: #c8ff23; }
+    .hero-subtitle { max-width: 590px; color: #d1d6da; font-size: 1.08rem; margin-bottom: 28px; }
+    .hero-badges { margin-bottom: 28px; gap: 0; }
+    .hero-badge {
+      border-radius: 0;
+      border-color: #4c555e;
+      border-right: 0;
+      background: transparent;
+      color: #ffffff;
+      padding: 7px 10px;
+    }
+    .hero-badge:last-child { border-right: 1px solid #4c555e; }
+
+    .cta-row { gap: 10px; }
+    .btn-primary, .btn-ghost, .btn-fantasy {
+      border-radius: 0;
+      font-weight: 800;
+      padding: 12px 16px;
+      box-shadow: none;
+    }
+    .btn-primary { background: #c8ff23; color: #111319; }
+    .btn-primary:hover { background: #ffffff; box-shadow: none; transform: none; }
+    .btn-fantasy { background: #0066cc; color: #ffffff; }
+    .btn-fantasy:hover { background: #004f9e; box-shadow: none; transform: none; }
+    .btn-ghost { border-color: var(--text-main); color: var(--text-main); }
+
+    .hero-right {
+      border-radius: 0;
+      border: 0;
+      border-left: 1px solid #4c555e;
+      box-shadow: none;
+      background: #181b20;
+      padding: 28px;
+      color: #ffffff;
+    }
+    .hero-right-header { color: #aeb6bf; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-right-header span:last-child { color: #ffffff; }
+    .live-badge { border-radius: 0; background: #c8ff23; border-color: #c8ff23; color: #111319; }
+    .live-badge::before { background: #111319; box-shadow: none; }
+    .model-status { color: #d1d6da; }
+    .model-status strong { color: #c8ff23; }
+    .hero-feature-text, .hero-feature-list li { color: #d1d6da; }
+    .hero-feature-bullet { background: var(--accent); }
+
+    section, .dashboard-wide {
+      border-radius: 0;
+      border: 0;
+      border-top: 2px solid var(--text-main);
+      box-shadow: none;
+      background: transparent;
+      padding: 24px 0 0;
+    }
+    section h2 { color: var(--text-main); font-size: 1rem; letter-spacing: 0.11em; }
+    .section-body, .dashboard-lead { color: var(--text-muted); max-width: 900px; }
+    .list-bullet { border-radius: 0; background: var(--accent); }
+    #fantasy { background: #ddecff; padding: 28px; border-top-color: #0066cc; }
+    #fantasy h2 { color: #004f9e; }
+    #archive { border-top-color: #939da5; }
+    #archive h2 { color: #59636e; }
+
+    .dashboard-embed-shell { padding: 20px 0 0; }
+    .dashboard-embed-card {
+      border-radius: 0;
+      border: 1px solid var(--text-main);
+      box-shadow: none;
+      background: #ffffff;
+      padding: 12px;
+    }
+    .dashboard-embed-card iframe { border-radius: 0; }
+    footer { border-top: 2px solid var(--text-main); color: var(--text-muted); }
+    footer a { color: #0066cc; }
+
+    .cookie-banner { background: #111319; border-radius: 0; }
+    .cookie-accept { background: #c8ff23; color: #111319; box-shadow: none; border-radius: 0; }
+    .cookie-reject { color: #ffffff; border-radius: 0; }
+
+    @media (max-width: 860px) {
+      .page { padding: 0 18px 48px; }
+      header, .top-nav { margin-left: -18px; margin-right: -18px; padding-left: 18px; padding-right: 18px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 34px 24px; }
+      .hero-right { border-left: 0; border-top: 1px solid #4c555e; }
+      .hero-badge { border-right: 1px solid #4c555e; border-bottom: 0; }
+      .hero-left h1 { font-size: clamp(3.3rem, 18vw, 5.4rem); }
+    }
+  </style>
+
+  <!-- ===== Portfolio rebuild: product-first layout ===== -->
+  <style>
+    :root {
+      --portfolio-ink: #121826;
+      --portfolio-paper: #f7f8fc;
+      --portfolio-white: #ffffff;
+      --portfolio-blue: #2454e6;
+      --portfolio-red: #ef4d42;
+      --portfolio-sky: #cfe8ff;
+      --portfolio-line: #c6cddc;
+      --portfolio-muted: #596579;
+    }
+
+    body { background: var(--portfolio-paper); color: var(--portfolio-ink); }
+    .legacy-portfolio { display: none !important; }
+    .portfolio-page { max-width: 1440px; margin: 0 auto; padding: 0 34px 34px; }
+    .portfolio-page a { color: inherit; }
+
+    .site-header {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--portfolio-ink);
+      gap: 24px;
+    }
+    .site-name { font-size: 1rem; font-weight: 800; letter-spacing: 0; }
+    .site-name span { color: var(--portfolio-blue); }
+    .site-role { color: var(--portfolio-muted); font-size: 0.92rem; }
+    .site-nav { display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+    .site-nav a { color: var(--portfolio-ink); font-size: 0.88rem; font-weight: 750; text-decoration: none; }
+    .site-nav a:hover { color: var(--portfolio-blue); }
+
+    .portfolio-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr);
+      gap: 48px;
+      align-items: end;
+      padding: 84px 0 66px;
+      border-bottom: 1px solid var(--portfolio-ink);
+    }
+    .intro-kicker, .section-kicker, .project-number, .mini-kicker {
+      color: var(--portfolio-blue);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .portfolio-intro h1 {
+      max-width: 840px;
+      margin: 12px 0 20px;
+      color: var(--portfolio-ink);
+      font-size: clamp(3.5rem, 7.4vw, 7.4rem);
+      line-height: 0.91;
+      letter-spacing: 0;
+    }
+    .portfolio-intro h1 strong { color: var(--portfolio-blue); font-weight: inherit; }
+    .intro-copy { max-width: 690px; color: #334155; font-size: 1.16rem; line-height: 1.58; }
+    .intro-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .intro-button, .project-link, .contact-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0 18px; border: 1px solid var(--portfolio-ink);
+      background: var(--portfolio-ink); color: #fff !important; text-decoration: none;
+      font-size: 0.9rem; font-weight: 800;
+    }
+    .intro-button--secondary { background: transparent; color: var(--portfolio-ink) !important; }
+    .intro-button:hover, .project-link:hover, .contact-link:hover { background: var(--portfolio-blue); border-color: var(--portfolio-blue); color: #fff !important; }
+    .intro-button--secondary:hover { color: #fff !important; }
+    .intro-aside { padding: 24px; border-left: 8px solid var(--portfolio-red); background: var(--portfolio-white); }
+    .intro-aside p { margin: 10px 0 0; color: var(--portfolio-muted); line-height: 1.55; }
+    .intro-aside strong { display: block; margin-top: 18px; font-size: 1.15rem; }
+
+    .work-section { padding: 68px 0 0; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 22px; }
+    .section-heading h2 { margin: 6px 0 0; color: var(--portfolio-ink); font-size: clamp(2rem, 3.2vw, 3.4rem); letter-spacing: 0; }
+    .section-note { max-width: 330px; margin: 0; color: var(--portfolio-muted); line-height: 1.45; text-align: right; }
+    .project-feature { display: grid; grid-template-columns: minmax(300px, 0.75fr) minmax(400px, 1.25fr); border: 1px solid var(--portfolio-ink); background: var(--portfolio-white); }
+    .project-copy { display: flex; flex-direction: column; padding: 34px; border-right: 1px solid var(--portfolio-ink); }
+    .project-copy h3 { margin: 14px 0 12px; color: var(--portfolio-ink); font-size: clamp(1.7rem, 2.4vw, 2.55rem); letter-spacing: 0; }
+    .project-copy > p { color: #3e4959; line-height: 1.58; }
+    .project-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 26px 0 30px; border-top: 1px solid var(--portfolio-line); border-bottom: 1px solid var(--portfolio-line); }
+    .project-meta div { min-width: 0; padding: 13px 8px 13px 0; }
+    .project-meta div + div { border-left: 1px solid var(--portfolio-line); padding-left: 12px; }
+    .project-meta strong { display: block; color: var(--portfolio-blue); font-size: 1.2rem; }
+    .project-meta span { display: block; margin-top: 3px; color: var(--portfolio-muted); font-size: 0.74rem; line-height: 1.25; }
+    .project-link { margin-top: auto; align-self: flex-start; background: var(--portfolio-blue); border-color: var(--portfolio-blue); }
+    .project-visual { min-height: 560px; background: var(--portfolio-ink); }
+    .project-visual iframe { display: block; width: 100%; height: 100%; min-height: 560px; border: 0; }
+
+    .fantasy-feature { display: grid; grid-template-columns: minmax(250px, 0.65fr) minmax(0, 1.35fr); margin-top: 26px; border-top: 10px solid var(--portfolio-red); background: var(--portfolio-sky); }
+    .fantasy-feature > div { padding: 34px; }
+    .fantasy-intro { color: #fff; background: var(--portfolio-blue); }
+    .fantasy-intro .project-number { color: var(--portfolio-sky); }
+    .fantasy-intro h3 { margin: 14px 0 12px; font-size: clamp(1.7rem, 2.3vw, 2.45rem); line-height: 1; }
+    .fantasy-intro p { margin: 0; color: #e9efff; line-height: 1.55; }
+    .fantasy-detail { display: flex; flex-direction: column; justify-content: space-between; }
+    .fantasy-detail > p { max-width: 680px; margin: 0; color: var(--portfolio-ink); font-size: 1.15rem; line-height: 1.5; }
+    .feature-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 30px 0; }
+    .feature-list div { padding-top: 11px; border-top: 2px solid var(--portfolio-ink); color: #2d3a4e; font-size: 0.88rem; line-height: 1.42; }
+    .feature-list strong { display: block; margin-bottom: 4px; color: var(--portfolio-ink); }
+    .fantasy-detail .project-link { background: var(--portfolio-ink); border-color: var(--portfolio-ink); }
+
+    .method-section { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 42px; margin-top: 76px; padding: 40px 0; border-top: 1px solid var(--portfolio-ink); border-bottom: 1px solid var(--portfolio-ink); }
+    .method-title h2 { margin: 8px 0 0; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0; }
+    .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .method-steps article { padding-top: 12px; border-top: 4px solid var(--portfolio-blue); }
+    .method-steps article:nth-child(2) { border-color: var(--portfolio-red); }
+    .method-steps article:nth-child(3) { border-color: #f0ae20; }
+    .method-steps strong { display: block; font-size: 1.05rem; }
+    .method-steps p { margin: 7px 0 0; color: var(--portfolio-muted); font-size: 0.92rem; line-height: 1.45; }
+
+    .archive-section { margin-top: 76px; padding-top: 2px; }
+    .archive-top { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; align-items: start; margin-bottom: 24px; }
+    .archive-top h2, .profile-block h2, .contact-block h2 { margin: 8px 0 0; color: var(--portfolio-ink); font-size: clamp(1.8rem, 2.7vw, 2.8rem); letter-spacing: 0; }
+    .archive-top p { margin: 0; color: var(--portfolio-muted); line-height: 1.58; }
+    .archive-frame { height: 500px; border: 1px solid var(--portfolio-ink); background: var(--portfolio-white); }
+    .archive-frame iframe { width: 100%; height: 100%; border: 0; }
+
+    .closing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 76px; border: 1px solid var(--portfolio-ink); background: var(--portfolio-white); }
+    .profile-block, .contact-block { padding: 34px; }
+    .contact-block { color: #fff; background: var(--portfolio-ink); }
+    .contact-block h2 { color: #fff; }
+    .profile-block p, .contact-block p { margin: 16px 0 0; line-height: 1.58; }
+    .profile-block p { color: var(--portfolio-muted); }
+    .contact-block p { color: #cbd4e2; }
+    .profile-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .profile-skills span { padding: 7px 9px; border: 1px solid var(--portfolio-line); color: var(--portfolio-ink); font-size: 0.8rem; font-weight: 750; }
+    .contact-link { margin-top: 23px; background: var(--portfolio-red); border-color: var(--portfolio-red); }
+    .contact-link:hover { background: #fff; border-color: #fff; color: var(--portfolio-ink) !important; }
+
+    .portfolio-footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 22px 0 0; color: var(--portfolio-muted); font-size: 0.82rem; }
+    .portfolio-footer a { color: var(--portfolio-ink); text-decoration: none; }
+    .portfolio-footer a:hover { color: var(--portfolio-blue); }
+
+    @media (max-width: 900px) {
+      .portfolio-page { padding: 0 20px 24px; }
+      .site-header { padding: 16px 0; align-items: flex-start; flex-direction: column; }
+      .site-nav { justify-content: flex-start; gap: 12px 18px; }
+      .portfolio-intro, .project-feature, .fantasy-feature, .method-section, .archive-top, .closing-grid { grid-template-columns: 1fr; }
+      .portfolio-intro { padding: 54px 0 46px; gap: 30px; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .section-note { text-align: left; }
+      .project-copy { border-right: 0; border-bottom: 1px solid var(--portfolio-ink); }
+      .project-visual, .project-visual iframe { min-height: 440px; }
+      .feature-list, .method-steps { grid-template-columns: 1fr; }
+      .archive-frame { height: 420px; }
+    }
+  </style>
+
   <!-- ===== Cookie Consent (GDPR) ===== -->
   <style>
     .cookie-banner {
@@ -736,7 +1055,7 @@
     </div>
   </div>
 
-  <div class="page">
+  <div class="page legacy-portfolio" aria-hidden="true">
     <header>
       <div class="brand-left">
         <div class="logo-mark">
@@ -753,9 +1072,9 @@
     </header>
 
     <nav class="top-nav">
-      <a href="#predictor-2026">Featured project</a>
-      <a href="https://gpfantasypredictor.com/" class="fantasyLink" target="_blank" rel="noopener noreferrer">Fantasy optimizer</a>
-      <a href="#dashboard">Portfolio</a>
+      <a href="#predictor-2026">GP Predictor</a>
+      <a href="#fantasy">Fantasy optimizer</a>
+      <a href="#archive">2025 archive</a>
       <a href="#about">Profile</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -763,39 +1082,38 @@
     <div class="hero">
       <div class="hero-left">
         <h1>
-          Turning <span>data</span> into decisions,
-          dashboards and forecasting tools.
+          Race-week <span>data</span>,
+          made useful.
         </h1>
         <p class="hero-subtitle">
-          I build analytics products that make complex decisions easier to read, trust and act on.
-          My work combines 7+ years in Business Intelligence with hands-on F1 modelling projects,
-          from Power BI dashboards to Python-based race simulations and fantasy optimization tools.
+          I build practical analytics products that make complex decisions quicker to read, trust and act on.
+          My work combines 7+ years in Business Intelligence with live F1 modelling, Power BI and fantasy tools.
         </p>
 
         <div class="hero-badges">
-          <div class="hero-badge">F1 prediction modelling</div>
+          <div class="hero-badge">Live F1 models</div>
           <div class="hero-badge">Power BI · Qlik Sense · Tableau</div>
-          <div class="hero-badge">BI product ownership &amp; automation</div>
+          <div class="hero-badge">Decision tools</div>
         </div>
 
         <div class="cta-row">
-          <a href="#predictor-2026" class="btn-primary">View 2026 Predictor</a>
+          <a href="#predictor-2026" class="btn-primary">Explore 2026 GP Predictor</a>
           <a href="https://gpfantasypredictor.com/" class="btn-fantasy fantasyLink" target="_blank"
             rel="noopener noreferrer">Optimize F1 Fantasy Team</a>
-          <a href="#dashboard" class="btn-ghost">View 2025 Dashboard</a>
         </div>
       </div>
 
       <aside class="hero-right">
         <div class="hero-right-header">
-          <span>Featured project</span>
+          <span>Live product</span>
           <span>F1 2026 GP Predictor</span>
         </div>
         <div class="hero-right-main">
           <span class="live-badge">Race-weekend model</span>
+          <p class="model-status"><strong>Latest forecast:</strong> Belgian GP after-practice model.</p>
           <p class="hero-feature-text">
-            A Python-powered predictor engine visualised in Power BI, with win probability, podium outlook, DNF risk,
-            finishing position projections and circuit-fit context.
+            A race-weekend forecast built in Python and visualised in Power BI, with win probability, podium outlook,
+            DNF risk, finishing-position projections and circuit-fit context.
           </p>
           <ul class="hero-feature-list">
             <li>
@@ -816,7 +1134,7 @@
       </aside>
     </div>
 
-    <section class="dashboard-wide" id="predictor-2026">
+    <section class="dashboard-wide" id="legacy-predictor-2026">
       <h2>F1 2026 GP Predictor</h2>
       <div class="section-body">
         <p class="dashboard-lead">
@@ -852,18 +1170,6 @@
           </li>
         </ul>
 
-        <div class="fantasy-callout">
-          <div>
-            <h3>Playing F1 Fantasy?</h3>
-            <p>
-              Use the GP Fantasy Predictor to turn the latest GP projections into an optimized fantasy lineup, including
-              budget, transfer limits and the recommended driver boost.
-            </p>
-          </div>
-          <a href="https://gpfantasypredictor.com/" class="btn-fantasy fantasyLink" target="_blank"
-            rel="noopener noreferrer">Open GP Fantasy Predictor</a>
-        </div>
-
         <div class="dashboard-embed-shell">
           <div class="dashboard-embed-card">
             <iframe title="F1_2026_Predictor"
@@ -871,7 +1177,7 @@
               allowfullscreen="true">
             </iframe>
             <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px; text-align:right;">
-              <a id="fullscreenLink2026"
+              <a id="legacyFullscreenLink2026"
                 href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
                 target="_blank" rel="noopener noreferrer" style="color:var(--accent-soft);">
                 Open report in full screen →
@@ -882,12 +1188,29 @@
       </div>
     </section>
 
-    <section class="dashboard-wide" id="dashboard" style="margin-top: 32px;">
-      <h2>Portfolio: F1 2025 Season Explorer</h2>
+    <section id="legacy-fantasy" style="margin-top: 24px;">
+      <h2>GP Fantasy Predictor</h2>
       <div class="section-body">
         <p class="dashboard-lead">
-          Explore my F1 2025 Power BI report directly below: an interactive season explorer with overview pages,
-          race detail and a title-fight simulator.
+          A companion tool that turns the current GP forecast into an F1 Fantasy lineup recommendation. Enter your
+          squad, total budget and free transfers to compare valid teams before lock.
+        </p>
+        <ul class="list" style="margin-bottom: 18px;">
+          <li><span class="list-bullet"></span><span><strong>Personalized lineups:</strong> your actual drivers, constructors, budget and transfer limit.</span></li>
+          <li><span class="list-bullet"></span><span><strong>Race-aware decisions:</strong> expected points, chips, grid penalties and the required driver boost.</span></li>
+          <li><span class="list-bullet"></span><span><strong>Budget planning:</strong> price outlooks alongside points, rather than a generic best team.</span></li>
+        </ul>
+        <a href="https://gpfantasypredictor.com/" class="btn-fantasy fantasyLink" target="_blank"
+          rel="noopener noreferrer">Open GP Fantasy Predictor</a>
+      </div>
+    </section>
+
+    <section class="dashboard-wide" id="legacy-archive" style="margin-top: 24px;">
+      <h2>Archive Case Study: F1 2025 Season Explorer</h2>
+      <div class="section-body">
+        <p class="dashboard-lead">
+          An earlier Power BI season explorer with overview pages, race detail and a title-fight simulator.
+          It remains here as a portfolio case study; the 2026 GP Predictor above is the active product.
         </p>
 
         <div class="dashboard-embed-shell">
@@ -897,7 +1220,7 @@
               allowfullscreen="true">
             </iframe>
             <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px; text-align:right;">
-              <a id="fullscreenLink"
+              <a id="legacyFullscreenLink"
                 href="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
                 target="_blank" rel="noopener noreferrer" style="color:var(--accent-soft);">
                 Open report in full screen →
@@ -908,18 +1231,17 @@
       </div>
     </section>
 
-    <section id="about" style="margin-top: 24px;">
+    <section id="legacy-about" style="margin-top: 24px;">
       <h2>Profile</h2>
       <div class="section-body">
         <p>
-          I specialise in turning messy business questions into clear, usable analytics products:
-          from KPI dashboards and self-service reporting to predictive models and decision-support tools.
+          I have 7+ years of experience designing and delivering BI solutions across aviation, financial services and
+          consumer goods. I specialise in turning messy business questions into clear, usable analytics products.
         </p>
         <ul class="list">
           <li>
             <span class="list-bullet"></span>
-            <span>7+ years designing and delivering BI solutions across aviation, financial services and consumer
-              goods.</span>
+            <span>From KPI dashboards and self-service reporting to predictive models and decision-support tools.</span>
           </li>
           <li>
             <span class="list-bullet"></span>
@@ -929,15 +1251,11 @@
             <span class="list-bullet"></span>
             <span>Experienced in Agile product ownership, team leadership and cross-functional collaboration.</span>
           </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span>Passionate about innovation, automation and continuous learning in data technology.</span>
-          </li>
         </ul>
       </div>
     </section>
 
-    <section id="contact" style="margin-top: 24px;">
+    <section id="legacy-contact" style="margin-top: 24px;">
       <h2>Contact</h2>
       <div class="section-body">
         <p>
@@ -947,16 +1265,11 @@
         <ul class="list">
           <li>
             <span class="list-bullet"></span>
-            <span><strong>Email:</strong> fd.olive.23@gmail.com</span>
+            <span><strong>Email:</strong> filipe@filipeoliveiraanalytics.com</span>
           </li>
           <li>
             <span class="list-bullet"></span>
-            <span>
-              <strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/filipeoliveira/" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/filipeoliveira
-              </a>
-            </span>
+            <a href="https://www.linkedin.com/in/filipeoliveira/" class="btn-ghost" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
           </li>
         </ul>
       </div>
@@ -974,8 +1287,153 @@
 
   </div>
 
+  <div class="portfolio-page">
+    <header class="site-header">
+      <div>
+        <div class="site-name">Filipe Oliveira <span>/ Analytics</span></div>
+        <div class="site-role">BI products, forecasting and decision support</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#method">Approach</a>
+        <a href="#archive">Archive</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="portfolio-intro" aria-labelledby="portfolio-title">
+        <div>
+          <p class="intro-kicker">Independent BI and analytics practitioner</p>
+          <h1 id="portfolio-title">I turn data into <strong>decisions</strong> people use.</h1>
+          <p class="intro-copy">
+            I build practical analytics products from ambiguous operational questions: clear models, usable dashboards
+            and tools that help people decide with confidence.
+          </p>
+          <div class="intro-actions">
+            <a class="intro-button" href="#work">View selected work</a>
+            <a class="intro-button intro-button--secondary" href="https://www.linkedin.com/in/filipeoliveira/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+        <aside class="intro-aside">
+          <p class="mini-kicker">What I bring</p>
+          <strong>7+ years turning messy data into clear, useful reporting.</strong>
+          <p>Power BI, Qlik Sense, Tableau, SQL, Python, data modelling, product ownership and stakeholder-led analytics.</p>
+        </aside>
+      </section>
+
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Selected work</p>
+            <h2 id="work-title">Products with a job to do.</h2>
+          </div>
+          <p class="section-note">These are live, iterative tools, not static dashboard screenshots.</p>
+        </div>
+
+        <article class="project-feature" id="predictor-2026">
+          <div class="project-copy">
+            <p class="project-number">01 / F1 GP Predictor</p>
+            <h3>Race forecasting, made legible.</h3>
+            <p>
+              A live Power BI forecasting product built from Python feature engineering and Monte Carlo simulations.
+              It turns race-weekend inputs into an answer people can inspect: probabilities, track fit, risk and
+              prediction-vs-result learning.
+            </p>
+            <div class="project-meta" aria-label="GP Predictor highlights">
+              <div><strong>3,000+</strong><span>race simulations</span></div>
+              <div><strong>4</strong><span>forecast checkpoints</span></div>
+              <div><strong>Live</strong><span>Power BI report</span></div>
+            </div>
+            <a id="fullscreenLink2026" class="project-link" href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the live predictor</a>
+          </div>
+          <div class="project-visual">
+            <iframe title="F1 2026 GP Predictor" src="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true"></iframe>
+          </div>
+        </article>
+
+        <article class="fantasy-feature" id="fantasy">
+          <div class="fantasy-intro">
+            <p class="project-number">02 / GP Fantasy Predictor</p>
+            <h3>From forecast to a usable F1 Fantasy decision.</h3>
+            <p>A personalized optimizer built around the team a player already owns, rather than a generic ideal lineup.</p>
+          </div>
+          <div class="fantasy-detail">
+            <p>
+              The optimizer combines the current GP model, official F1 Fantasy prices, available transfers, chips and
+              price-movement signals. It makes the trade-off between maximum points, transfer efficiency and budget growth explicit.
+            </p>
+            <div class="feature-list">
+              <div><strong>Personal</strong>Actual drivers, constructors, cash and free transfers.</div>
+              <div><strong>Contextual</strong>Grid penalties, sprint weekends and track-specific model inputs.</div>
+              <div><strong>Actionable</strong>Top alternatives, boost choice and a transparent transfer explanation.</div>
+            </div>
+            <a class="project-link fantasyLink" href="https://gpfantasypredictor.com/" target="_blank" rel="noopener noreferrer">Try the fantasy optimizer</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="method-section" id="method" aria-labelledby="method-title">
+        <div class="method-title">
+          <p class="section-kicker">How I work</p>
+          <h2 id="method-title">Model, dashboard, decision.</h2>
+        </div>
+        <div class="method-steps">
+          <article><strong>01. Frame the decision</strong><p>Clarify who needs to act, what changes and what evidence would build confidence.</p></article>
+          <article><strong>02. Build the data product</strong><p>Engineer robust inputs, design useful measures and make the logic inspectable.</p></article>
+          <article><strong>03. Learn in the open</strong><p>Track outcomes, refine assumptions and make each next version more useful.</p></article>
+        </div>
+      </section>
+
+      <section class="archive-section" id="archive" aria-labelledby="archive-title">
+        <div class="archive-top">
+          <div>
+            <p class="section-kicker">Archive case study</p>
+            <h2 id="archive-title">F1 2025 Season Explorer</h2>
+          </div>
+          <p>
+            The previous-season explorer remains here as evidence of the reporting foundation: race detail, title-fight
+            scenarios and a season narrative designed for exploration. The GP Predictor above is the current live product.
+          </p>
+        </div>
+        <div class="archive-frame">
+          <iframe title="F1 2025 Season Explorer" src="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true"></iframe>
+        </div>
+      </section>
+
+      <section class="closing-grid" id="about" aria-label="Profile and contact">
+        <div class="profile-block">
+          <p class="section-kicker">Profile</p>
+          <h2>Clear thinking, grounded in the business.</h2>
+          <p>
+            My experience spans aviation, financial services and consumer goods. I enjoy connecting data, systems and
+            people so a dashboard becomes a decision-support product rather than a reporting endpoint.
+          </p>
+          <div class="profile-skills" aria-label="Skills">
+            <span>Power BI</span><span>Qlik Sense</span><span>Tableau</span><span>SQL</span><span>Python</span><span>Data modelling</span>
+          </div>
+        </div>
+        <div class="contact-block" id="contact">
+          <p class="section-kicker">Contact</p>
+          <h2>Let&apos;s make the useful thing.</h2>
+          <p>For BI products, dashboards, analytics design or data storytelling, get in touch.</p>
+          <a class="contact-link" href="mailto:fd.olive.23@gmail.com">fd.olive.23@gmail.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="portfolio-footer">
+      <span>&copy; <span id="year-new"></span> Filipe Oliveira</span>
+      <span><a href="/privacy.html">Privacy</a> / <a href="/cookies.html">Cookies</a></span>
+    </footer>
+  </div>
+
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
+    const legacyYear = document.getElementById("year");
+    const portfolioYear = document.getElementById("year-new");
+    if (legacyYear) legacyYear.textContent = currentYear;
+    if (portfolioYear) portfolioYear.textContent = currentYear;
   </script>
   <script>
     // Track clicks on both full screen links (only if analytics cookies accepted)
