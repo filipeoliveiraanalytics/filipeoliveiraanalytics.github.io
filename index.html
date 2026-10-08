@@ -70,12 +70,12 @@
     .project-notes { display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:40px; padding-top:26px; border-top:1px solid var(--line); }
     .project-notes h3 { margin-bottom:8px; color:var(--teal); font-family:var(--sans); font-size:.69rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; }
     .project-notes p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.55; }
-    .behind-scenes { display:grid; grid-template-columns:minmax(270px,.72fr) minmax(340px,1fr); gap:clamp(42px,7vw,110px); align-items:center; padding:66px 80px; border-bottom:1px solid var(--line); }
+    .behind-scenes { display:grid; grid-template-columns:190px minmax(0,1fr); gap:34px; align-items:center; padding:33px 80px; border-bottom:1px solid var(--line); }
     .behind-scenes figure { margin:0; }
-    .behind-scenes img { display:block; width:100%; height:auto; }
+    .behind-scenes img { display:block; width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:center 68%; }
     .behind-scenes figcaption { margin-top:10px; color:var(--muted); font-size:.75rem; }
-    .behind-scenes h2 { max-width:480px; margin:0 0 18px; font-size:clamp(2rem,3.8vw,3.4rem); line-height:1.02; }
-    .behind-scenes .body-copy { max-width:470px; }
+    .behind-scenes h2 { max-width:540px; margin:0 0 10px; font-size:clamp(1.55rem,2.5vw,2.2rem); line-height:1.05; }
+    .behind-scenes .body-copy { max-width:630px; font-size:.93rem; }
     .supporting { padding:34px 0; border-bottom:1px solid var(--line); }
     .supporting-disclosure { border:0; }
     .supporting-disclosure summary { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:16px 0; color:var(--dark); cursor:pointer; list-style:none; }
@@ -147,7 +147,7 @@
     .predictor-modal iframe { display:block; width:100%; height:calc(100% - 66px); border:0; background:#fff; }
     @media (max-width:1200px) { .hero{grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr)} }
     @media (max-width:1100px) { .predictor-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr)}.supporting-layout{grid-template-columns:minmax(0,1.55fr) minmax(200px,.45fr)} }
-    @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact,.behind-scenes{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.hero-video{width:100%;justify-self:stretch}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.behind-scenes{gap:28px;padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.predictor-layout > div:last-child,.supporting-layout > div:first-child{width:100%}.embed-frame iframe,.supporting .embed-frame iframe{height:auto;aspect-ratio:3 / 2}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px}.fantasy-racecar-prompt{right:18px;bottom:18px;padding:22px 20px 19px}.racecar-vector{width:150px;top:-58px;right:-17px}.fantasy-racecar-prompt h2{max-width:235px;font-size:1.34rem} }
+    @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.hero-video{width:100%;justify-self:stretch}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.behind-scenes{grid-template-columns:112px minmax(0,1fr);gap:20px;padding:30px 0}.behind-scenes figcaption{display:none}.behind-scenes h2{font-size:1.45rem}.behind-scenes .body-copy{font-size:.86rem}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.predictor-layout > div:last-child,.supporting-layout > div:first-child{width:100%}.embed-frame iframe,.supporting .embed-frame iframe{height:auto;aspect-ratio:3 / 2}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px}.fantasy-racecar-prompt{right:18px;bottom:18px;padding:22px 20px 19px}.racecar-vector{width:150px;top:-58px;right:-17px}.fantasy-racecar-prompt h2{max-width:235px;font-size:1.34rem} }
     @media (max-width:410px) { .nav{gap:12px}h1{font-size:2.9rem} }
     @media (prefers-reduced-motion:reduce) { .live-label { clip-path:none; animation:none; }.live-label::after,.racecar-vector,.racecar-vector .racecar-streak { animation:none; } }
   </style>
