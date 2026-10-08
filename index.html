@@ -1,901 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <title>Filipe Oliveira | Analytics Portfolio, Power BI & F1 Data Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Analytics portfolio of Filipe Oliveira, a Data and BI professional. Featuring the F1 2026 Next GP Predictor and interactive data storytelling dashboards in Power BI and Tableau." />
-
+  <title>Filipe Oliveira | Analytics &amp; F1 Data Projects</title>
+  <meta name="description" content="Filipe Oliveira's analytics portfolio: F1 prediction products, interactive Power BI dashboards, and data storytelling." />
   <link rel="canonical" href="https://www.filipeoliveiraanalytics.com/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Filipe Oliveira | Analytics Portfolio, Power BI & F1 Data Projects" />
-  <meta property="og:description"
-    content="Analytics portfolio of Filipe Oliveira. F1 2026 Race Predictor using Python and Power BI, plus interactive data storytelling dashboards." />
+  <meta property="og:title" content="Filipe Oliveira | Analytics &amp; F1 Data Projects" />
+  <meta property="og:description" content="F1 prediction products and interactive data storytelling by Filipe Oliveira." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.filipeoliveiraanalytics.com/" />
-  <meta property="og:image" content="https://www.filipeoliveiraanalytics.com/og-image.jpg" />
-
-  <!-- Twitter -->
+  <meta property="og:image" content="https://www.filipeoliveiraanalytics.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Filipe Oliveira | Analytics Portfolio, Power BI & F1 Data Projects" />
-  <meta name="twitter:description"
-    content="Analytics portfolio of Filipe Oliveira. F1 2026 Race Predictor using Python and Power BI, plus interactive data storytelling dashboards." />
-  <meta name="twitter:image" content="https://www.filipeoliveiraanalytics.com/og-image.jpg" />
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://www.filipeoliveiraanalytics.com/#website",
-        "url": "https://www.filipeoliveiraanalytics.com/",
-        "name": "Filipe Oliveira Analytics",
-        "description": "Analytics portfolio of Filipe Oliveira, a Data and BI professional."
-      },
-      {
-        "@type": "Person",
-        "@id": "https://www.filipeoliveiraanalytics.com/#person",
-        "name": "Filipe Oliveira",
-        "jobTitle": "Data & Business Intelligence Professional",
-        "url": "https://www.filipeoliveiraanalytics.com/"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Favicon (make sure favicon.svg is in the site root) -->
+  <meta name="twitter:title" content="Filipe Oliveira | Analytics &amp; F1 Data Projects" />
+  <meta name="twitter:description" content="F1 prediction products and interactive data storytelling by Filipe Oliveira." />
+  <meta name="twitter:image" content="https://www.filipeoliveiraanalytics.com/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
-  <style>
-    :root {
-      --bg: #05070b;
-      --panel: #10131b;
-      --panel-soft: #181c24;
-      --accent: #ff8f1f;
-      --accent-soft: #ffb15e;
-      --text-main: #f5f7ff;
-      --text-muted: #9ca3bc;
-      --border: #272b36;
-      --pill: #1f2430;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at 0 0, #181d2a 0, #05070b 55%);
-      color: var(--text-main);
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
-    }
-
-    /* ===== Header & Nav ===== */
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      gap: 16px;
-    }
-
-    .brand-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-    }
-
-    .logo-bar {
-      width: 3px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .logo-bar:nth-child(1) {
-      height: 14px;
-    }
-
-    .logo-bar:nth-child(2) {
-      height: 20px;
-    }
-
-    .logo-bar:nth-child(3) {
-      height: 26px;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.18;
-    }
-
-    .brand-name {
-      font-size: 0.95rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .brand-tagline {
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .pill {
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: var(--pill);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-      white-space: nowrap;
-    }
-
-    .top-nav {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .top-nav a {
-      padding-bottom: 3px;
-      border-bottom: 1px solid transparent;
-    }
-
-    .top-nav a:hover {
-      border-color: var(--accent-soft);
-      color: var(--accent-soft);
-    }
-
-    /* ===== Hero ===== */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    .hero-left h1 {
-      font-size: 2.4rem;
-      margin-bottom: 8px;
-    }
-
-    .hero-left h1 span {
-      color: var(--accent);
-    }
-
-    .hero-subtitle {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      max-width: 620px;
-      line-height: 1.5;
-      margin-bottom: 18px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .hero-badge {
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--pill);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 9px 18px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease, border-color 0.12s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
-      color: #14151a;
-      box-shadow: 0 0 18px rgba(255, 143, 31, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 26px rgba(255, 143, 31, 0.55);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border-color: var(--border);
-      color: var(--text-muted);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent-soft);
-      color: var(--accent-soft);
-    }
-
-    /* ===== Hero right card ===== */
-
-    .hero-right {
-      background: radial-gradient(circle at 0 0, #252b3a 0, #10131b 55%);
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      padding: 18px 18px 16px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 8px;
-    }
-
-    .hero-right-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-right-main {
-      margin-top: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .hero-feature-text {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .hero-feature-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 4px 0 0;
-    }
-
-    .hero-feature-list li {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .hero-feature-bullet {
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
-
-    /* ===== Sections ===== */
-
-    section {
-      background: var(--panel);
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      padding: 20px 20px 18px;
-      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    section h2 {
-      font-size: 1.06rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .section-body {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .list {
-      list-style: none;
-      margin-top: 10px;
-    }
-
-    .list li {
-      padding: 4px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .list-bullet {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      flex-shrink: 0;
-    }
-
-    /* ===== Dashboard ===== */
-
-    .dashboard-wide {
-      margin-top: 12px;
-    }
-
-    .dashboard-lead {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .dashboard-embed-shell {
-      display: flex;
-      justify-content: center;
-      padding: 20px 0 8px;
-    }
-
-    .dashboard-embed-card {
-      width: 100%;
-      max-width: 1400px;
-      background-color: #05070b;
-      padding: 24px;
-      border-radius: 18px;
-      box-shadow: 0 0 28px rgba(0, 0, 0, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .dashboard-embed-card iframe {
-      width: 100%;
-      height: 680px;
-      border: 0;
-      border-radius: 12px;
-    }
-
-    /* ===== Footer ===== */
-
-    footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    footer a {
-      color: var(--accent-soft);
-    }
-
-    /* ===== Responsive ===== */
-
-    @media (max-width: 860px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .pill {
-        margin-top: 6px;
-      }
-
-      .top-nav {
-        flex-wrap: wrap;
-      }
-
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .dashboard-embed-card iframe {
-        height: 520px;
-      }
-    }
-  </style>
-
-  <!-- ===== Cookie Consent (GDPR) ===== -->
-  <style>
-    .cookie-banner {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      display: none;
-      flex-direction: column;
-      gap: 24px;
-      align-items: center;
-      text-align: center;
-      padding: 32px 24px;
-      border-radius: 20px;
-      background: rgba(16, 19, 27, 0.98);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      /* huge box-shadow creates a dark overlay over the whole site */
-      box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75), 0 24px 50px rgba(0, 0, 0, 0.7);
-      width: calc(100% - 32px);
-      max-width: 420px;
-      animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes popIn {
-      from {
-        transform: translate(-50%, -40%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-      }
-    }
-
-    .cookie-banner p {
-      margin: 0;
-      color: #d1d5db;
-      /* brighter text for readability */
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .cookie-banner a {
-      color: var(--accent-soft);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: color 0.2s;
-    }
-
-    .cookie-banner a:hover {
-      color: var(--text-main);
-    }
-
-    .cookie-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .cookie-actions button {
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 12px 24px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      white-space: nowrap;
-      flex: 1;
-    }
-
-    .cookie-accept {
-      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
-      color: #14151a;
-      box-shadow: 0 4px 14px rgba(255, 143, 31, 0.35);
-    }
-
-    .cookie-accept:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 143, 31, 0.55);
-      filter: brightness(1.1);
-    }
-
-    .cookie-reject {
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-    }
-
-    .cookie-reject:hover {
-      color: var(--text-main);
-      background: rgba(255, 255, 255, 0.05);
-    }
-  </style>
-
-  <script>
-    /**
-     * Google Analytics (GA4) - loaded only after consent.
-     * Stores choice in localStorage: fo_cookie_consent = 'accepted' | 'rejected'
-     */
-    (function () {
-      const CONSENT_KEY = 'fo_cookie_consent';
-      const GA_ID = 'G-NN7QRXXCNH';
-
-      // Stub gtag until GA is loaded (or forever if rejected)
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
-      function hasConsent() {
-        return localStorage.getItem(CONSENT_KEY) === 'accepted';
-      }
-
-      function loadGA() {
-        if (window.__ga_loaded) return;
-        window.__ga_loaded = true;
-
-        const s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
-        document.head.appendChild(s);
-
-        window.gtag('js', new Date());
-        // NOTE: IP anonymization is handled by GA4 automatically; we also avoid ad features.
-        window.gtag('config', GA_ID, {
-          // Avoid sending full IP; GA4 uses IP for geo then discards. We avoid extra identifiers.
-          // Keeping settings minimal for a portfolio site.
-          allow_google_signals: false,
-          allow_ad_personalization_signals: false
-        });
-      }
-
-      function showBanner() {
-        const banner = document.getElementById('cookieBanner');
-        if (banner) banner.style.display = 'flex';
-      }
-      function hideBanner() {
-        const banner = document.getElementById('cookieBanner');
-        if (banner) banner.style.display = 'none';
-      }
-
-      window.__cookieConsent = {
-        accept: function () {
-          localStorage.setItem(CONSENT_KEY, 'accepted');
-          hideBanner();
-          loadGA();
-        },
-        reject: function () {
-          localStorage.setItem(CONSENT_KEY, 'rejected');
-          hideBanner();
-        },
-        reset: function () {
-          localStorage.removeItem(CONSENT_KEY);
-          showBanner();
-        }
-      };
-
-      document.addEventListener('DOMContentLoaded', function () {
-        const choice = localStorage.getItem(CONSENT_KEY);
-        if (choice === 'accepted') {
-          loadGA();
-        } else if (choice === 'rejected') {
-          // Do nothing
-        } else {
-          showBanner();
-        }
-      });
-    })();
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.filipeoliveiraanalytics.com/#website","url":"https://www.filipeoliveiraanalytics.com/","name":"Filipe Oliveira Analytics","description":"Analytics portfolio of Filipe Oliveira, a Data and BI professional."},{"@type":"Person","@id":"https://www.filipeoliveiraanalytics.com/#person","name":"Filipe Oliveira","jobTitle":"Data & Business Intelligence Professional","url":"https://www.filipeoliveiraanalytics.com/"}]}
   </script>
-
+  <style>
+    :root { --paper:#f7f5f1; --ink:#29231f; --muted:#597795; --teal:#176f78; --line:#d8dde0; --dark:#373534; --serif:Georgia,"Times New Roman",Times,serif; --sans:"Segoe UI",Arial,Helvetica,sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible,button:focus-visible { outline:2px solid var(--teal); outline-offset:4px; }
+    .top-strip { height:5px; background:var(--dark); }
+    .page { max-width:1116px; margin:0 auto; padding:0 28px 20px; }
+    .site-header { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); min-height:77px; }
+    .brand { font:400 1.62rem/1 var(--serif); letter-spacing:-.02em; }
+    .nav { display:flex; gap:37px; font-size:.9rem; }
+    .nav a { padding:8px 0; border-bottom:1px solid transparent; }
+    .nav a:hover { border-color:var(--teal); color:var(--teal); }
+    .hero { display:grid; grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr); align-items:center; gap:58px; min-height:490px; border-bottom:1px solid var(--line); }
+    .eyebrow { margin:0 0 20px; color:var(--teal); font-size:.69rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:var(--serif); font-weight:400; letter-spacing:-.026em; }
+    h1 { max-width:630px; margin:0; font-size:clamp(3rem,5vw,4.55rem); line-height:.99; }
+    .jump-link { display:inline-block; margin-top:34px; color:var(--teal); font-size:.95rem; }
+    .jump-link:hover,.report-link:hover { text-decoration:underline; text-underline-offset:4px; }
+    .hero-visual { position:relative; min-height:365px; overflow:hidden; background:#ded9d0; }
+    .hero-visual::before { content:""; position:absolute; inset:0; background:linear-gradient(142deg,transparent 0 38%,rgba(74,75,70,.78) 38.2% 40.5%,transparent 40.8% 100%),linear-gradient(161deg,transparent 0 59%,rgba(102,100,90,.5) 59.2% 61.2%,transparent 61.5%); }
+    .hero-visual::after { content:""; position:absolute; width:128%; height:93%; left:-42%; top:28%; border:39px solid rgba(54,55,51,.84); border-right:0; border-bottom:0; border-radius:0 260px 0 0; transform:rotate(-13deg); }
+    .hero-visual span { position:absolute; z-index:1; bottom:20px; left:22px; color:rgba(255,255,255,.87); font-size:.67rem; letter-spacing:.14em; text-transform:uppercase; }
+    .origin { display:grid; grid-template-columns:minmax(230px,.78fr) minmax(0,1.22fr); gap:58px; padding:64px 0 66px; border-bottom:1px solid var(--line); }
+    .origin h2 { margin:0; font-size:clamp(2rem,3.3vw,2.85rem); line-height:1.04; }
+    .body-copy { max-width:650px; margin:0; color:var(--muted); font-size:1.04rem; line-height:1.6; }
+    .project { padding:70px 58px 69px; border-bottom:1px solid var(--line); }
+    .project-heading { margin-bottom:40px; }
+    .project-heading .eyebrow { margin-bottom:13px; }
+    .project-heading h2 { margin:0 0 9px; font-size:clamp(2.6rem,4.5vw,4rem); line-height:1; }
+    .project-status { margin:0; font-size:1rem; }
+    .predictor-layout { display:grid; grid-template-columns:minmax(230px,.76fr) minmax(420px,1.24fr); gap:54px; align-items:start; }
+    h3 { margin:0 0 14px; font-size:1.7rem; }
+    .numbered-list { list-style:none; padding:10px 0 0; margin:0; }
+    .numbered-list li { margin:0 0 17px; color:var(--muted); font-size:.93rem; line-height:1.42; }
+    .numbered-list strong { display:block; color:var(--ink); font-weight:500; font-size:1rem; }
+    .number { margin-right:9px; color:var(--teal); font-size:.78rem; letter-spacing:.07em; }
+    .embed-frame { overflow:hidden; border:1px solid #292b30; background:#10131b; }
+    .embed-frame iframe { display:block; width:100%; height:405px; border:0; }
+    .report-link { display:inline-block; margin-top:10px; color:var(--teal); font-size:.84rem; }
+    .project-notes { display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:40px; padding-top:26px; border-top:1px solid var(--line); }
+    .project-notes h3 { margin-bottom:8px; color:var(--teal); font-family:var(--sans); font-size:.69rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; }
+    .project-notes p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.55; }
+    .supporting { padding:63px 80px 67px; border-bottom:1px solid var(--line); }
+    .supporting-header { margin-bottom:29px; }
+    .supporting-header .eyebrow { margin-bottom:10px; }
+    .supporting-header h2 { margin:0 0 6px; font-size:clamp(2rem,3.6vw,3rem); line-height:1; }
+    .supporting-header p { margin:0; color:var(--muted); font-size:.9rem; }
+    .supporting-layout { display:grid; grid-template-columns:minmax(330px,1.08fr) minmax(230px,.92fr); align-items:center; gap:54px; }
+    .supporting .embed-frame iframe { height:330px; }
+    .callout { padding-left:23px; border-left:1px solid var(--line); }
+    .callout h3 { font-size:1.55rem; line-height:1.08; }
+    .button { display:inline-block; margin-top:4px; padding:11px 15px; background:var(--dark); color:#fff; font-size:.79rem; }
+    .button:hover { background:var(--teal); }
+    .about-contact { display:grid; grid-template-columns:1fr .78fr; gap:70px; padding:54px 80px 48px; }
+    .about-contact h2 { margin:0 0 13px; font-size:2rem; }
+    .about-contact .body-copy { font-size:.9rem; line-height:1.62; }
+    .quote { margin:22px 0 0; padding-left:14px; border-left:1px solid var(--teal); font:italic 1.04rem/1.35 var(--serif); }
+    .contact { padding-left:23px; border-left:1px solid var(--line); }
+    .contact p { margin:0 0 11px; font-size:.86rem; }
+    .contact a { color:var(--teal); }
+    .contact a:hover,footer a:hover { text-decoration:underline; text-underline-offset:3px; }
+    footer { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 80px 0; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; }
+    .cookie-banner { position:fixed; z-index:5; bottom:20px; left:50%; display:none; width:min(530px,calc(100% - 32px)); padding:22px; transform:translateX(-50%); background:var(--paper); border:1px solid var(--ink); box-shadow:0 12px 30px rgba(41,35,31,.18); }
+    .cookie-banner p { margin:0; color:var(--ink); font-size:.86rem; line-height:1.5; }
+    .cookie-banner a { color:var(--teal); text-decoration:underline; }
+    .cookie-actions { display:flex; gap:10px; margin-top:16px; }
+    .cookie-actions button { padding:9px 15px; border:1px solid var(--dark); background:transparent; color:var(--ink); cursor:pointer; font:600 .78rem var(--sans); }
+    .cookie-actions .cookie-accept { background:var(--dark); color:#fff; }
+    .cookie-actions button:hover { background:var(--teal); border-color:var(--teal); color:#fff; }
+    @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.origin,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0;min-height:auto}.hero-visual{min-height:260px}.origin,.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.embed-frame iframe,.supporting .embed-frame iframe{height:310px}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
+    @media (max-width:410px) { .nav{gap:12px}h1{font-size:2.9rem}.embed-frame iframe,.supporting .embed-frame iframe{height:260px} }
+  </style>
+  <script>
+    (function(){const key='fo_cookie_consent',id='G-NN7QRXXCNH';window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};function load(){if(window.__ga_loaded)return;window.__ga_loaded=true;const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);document.head.appendChild(script);window.gtag('js',new Date());window.gtag('config',id,{allow_google_signals:false,allow_ad_personalization_signals:false})}function banner(show){const el=document.getElementById('cookieBanner');if(el)el.style.display=show?'block':'none'}window.__cookieConsent={accept:function(){localStorage.setItem(key,'accepted');banner(false);load()},reject:function(){localStorage.setItem(key,'rejected');banner(false)},reset:function(){localStorage.removeItem(key);banner(true)}};document.addEventListener('DOMContentLoaded',function(){const choice=localStorage.getItem(key);if(choice==='accepted')load();else if(!choice)banner(true)})})();
+  </script>
 </head>
-
 <body>
-
-  <!-- Cookie banner -->
+  <div class="top-strip"></div>
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
-    <p>
-      I use <strong>Google Analytics</strong> to understand how visitors use the site.
-      You can accept or reject analytics cookies. Read the
-      <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy.html">Privacy Policy</a>.
-    </p>
-    <div class="cookie-actions">
-      <button class="cookie-reject" type="button" onclick="window.__cookieConsent.reject()">Reject</button>
-      <button class="cookie-accept" type="button" onclick="window.__cookieConsent.accept()">Accept</button>
-    </div>
+    <p>I use <strong>Google Analytics</strong> to understand how visitors use this site. You can accept or reject analytics cookies. Read the <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-actions"><button class="cookie-reject" type="button" onclick="window.__cookieConsent.reject()">Reject</button><button class="cookie-accept" type="button" onclick="window.__cookieConsent.accept()">Accept</button></div>
   </div>
-
   <div class="page">
-    <header>
-      <div class="brand-left">
-        <div class="logo-mark">
-          <div class="logo-bar"></div>
-          <div class="logo-bar"></div>
-          <div class="logo-bar"></div>
-        </div>
-        <div class="brand-text">
-          <div class="brand-name">Filipe Oliveira</div>
-          <div class="brand-tagline">Analytics · Dashboards · F1 Data Storytelling</div>
-        </div>
-      </div>
-      <div class="pill">Portfolio preview</div>
-    </header>
-
-    <nav class="top-nav">
-      <a href="#predictor-2026">Featured project</a>
-      <a href="#dashboard">Portfolio</a>
-      <a href="#about">Profile</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="hero">
-      <div class="hero-left">
-        <h1>
-          Turning <span>data</span> into clear,
-          interactive stories.
-        </h1>
-        <p class="hero-subtitle">
-          Data &amp; Business Intelligence professional with 7+ years of experience
-          across aviation, financial services and consumer goods. I translate business
-          needs into data-driven insights using tools like Qlik Sense, Power BI and
-          Tableau – with a strong focus on usability, automation and cross-functional
-          collaboration.
-        </p>
-
-        <div class="hero-badges">
-          <div class="hero-badge">Python (FastF1 Data)</div>
-          <div class="hero-badge">Power BI · Qlik Sense · Tableau</div>
-          <div class="hero-badge">Data Product Ownership &amp; BI Leadership</div>
-        </div>
-
-        <div class="cta-row">
-          <a href="#predictor-2026" class="btn-primary">View 2026 Predictor</a>
-          <a href="#dashboard" class="btn-ghost">View 2025 Dashboard</a>
-        </div>
-      </div>
-
-      <aside class="hero-right">
-        <div class="hero-right-header">
-          <span>Featured project</span>
-          <span>F1 2026 Next GP Predictor</span>
-        </div>
-        <div class="hero-right-main">
-          <p class="hero-feature-text">
-            A brand new predictor engine built with Python (v5.4.3) and visualised in Power BI. It predicts Win %, DNF
-            %, and final positions using Monte Carlo simulations.
-          </p>
-          <ul class="hero-feature-list">
-            <li>
-              <span class="hero-feature-bullet"></span>
-              <span><strong>Live Updates:</strong> Forecasts are rerun after Free Practices and Qualifying.</span>
-            </li>
-            <li>
-              <span class="hero-feature-bullet"></span>
-              <span>3,000+ Monte Carlo race simulations factoring in Safety Cars, tyre degradation &amp; driver
-                style.</span>
-            </li>
-            <li>
-              <span class="hero-feature-bullet"></span>
-              <span>Fully integrated Python script automatically fetching session telemetry via FastF1.</span>
-            </li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-
-    <section class="dashboard-wide" id="predictor-2026">
-      <h2>F1 2026 Next GP Predictor</h2>
-      <div class="section-body">
-        <p class="dashboard-lead">
-          This dashboard blends Python-based feature engineering and Monte Carlo race simulations into a Power BI
-          product focused on the next Grand Prix. It includes a premium F1-inspired interface and three pages designed
-          for both storytelling and explainability.
-        </p>
-        <ul class="list" style="margin-bottom: 24px;">
-          <li>
-            <span class="list-bullet"></span>
-            <span><strong>Overview:</strong> podium outlook, weather and safety car context, and fastest lap
-              likelihood.</span>
-          </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span><strong>Detailed probabilities:</strong> driver ranking table with win, podium, fastest lap and DNF
-              probabilities.</span>
-          </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span><strong>Circuit analysis:</strong> track demand profile and driver suitability ranking by team
-              colour.</span>
-          </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span><strong>Note:</strong> the model currently uses track characteristics, recent form, driver priors,
-              team pace assumptions, tyre behaviour, reliability signals, weather scenarios, safety car probability
-              among other factors. It is designed as a living project that can later support scenario-based controls
-              directly from Python.</span>
-          </li>
-          <li style="margin-top: 8px;">
-            <strong style="color: var(--accent-soft);">Live Updates:</strong> Predictions are dynamically updated after
-            every Free Practice and Qualifying session.
-          </li>
-        </ul>
-
-        <div class="dashboard-embed-shell">
-          <div class="dashboard-embed-card">
-            <iframe title="F1_2026_Predictor"
-              src="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
-              allowfullscreen="true">
-            </iframe>
-            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px; text-align:right;">
-              <a id="fullscreenLink2026"
-                href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
-                target="_blank" rel="noopener noreferrer" style="color:var(--accent-soft);">
-                Open report in full screen →
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="dashboard-wide" id="dashboard" style="margin-top: 32px;">
-      <h2>Portfolio: F1 2025 Season Explorer</h2>
-      <div class="section-body">
-        <p class="dashboard-lead">
-          Explore my previous F1 2025 v1.2 Power BI report directly below – fully
-          interactive with all three pages: season overview, race detail and the title fight simulator.
-        </p>
-
-        <div class="dashboard-embed-shell">
-          <div class="dashboard-embed-card">
-            <iframe title="F1_2025"
-              src="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
-              allowfullscreen="true">
-            </iframe>
-            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px; text-align:right;">
-              <a id="fullscreenLink"
-                href="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9"
-                target="_blank" rel="noopener noreferrer" style="color:var(--accent-soft);">
-                Open report in full screen →
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" style="margin-top: 24px;">
-      <h2>Profile</h2>
-      <div class="section-body">
-        <p>
-          I specialise in turning messy business questions into clear, visual stories –
-          from KPI dashboards to self-service reporting and data products.
-        </p>
-        <ul class="list">
-          <li>
-            <span class="list-bullet"></span>
-            <span>7+ years designing and delivering BI solutions across aviation, financial services and consumer
-              goods.</span>
-          </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span>Hands-on with Qlik Sense, Power BI, Tableau, SQL and data modelling.</span>
-          </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span>Experienced in Agile product ownership, team leadership and cross-functional collaboration.</span>
-          </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span>Passionate about innovation, automation and continuous learning in data technology.</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact" style="margin-top: 24px;">
-      <h2>Contact</h2>
-      <div class="section-body">
-        <p>
-          Interested in dashboards, analytics or data storytelling? Feel free to
-          reach out – I’m always open to talking about F1 data, BI projects and
-          reporting design.
-        </p>
-        <ul class="list">
-          <li>
-            <span class="list-bullet"></span>
-            <span><strong>Email:</strong> <a href="mailto:filipe@filipeoliveiraanalytics.com">filipe@filipeoliveiraanalytics.com</a></span>
-          </li>
-          <li>
-            <span class="list-bullet"></span>
-            <span>
-              <strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/filipeoliveira/" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/filipeoliveira
-              </a>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-
-    <footer>
-      <span>© <span id="year"></span> Filipe Oliveira. All rights reserved.</span>
-      <span>
-        <a href="/privacy.html">Privacy</a> ·
-        <a href="/cookies.html">Cookies</a>
-      </span>
-      <span>Designed &amp; built by Filipe – F1-inspired analytics.</span>
-    </footer>
-
+    <header class="site-header"><a class="brand" href="#top" aria-label="Filipe Oliveira home">Filipe Oliveira</a><nav class="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">Filipe Oliveira's portfolio</p><h1 id="hero-title">Data products for people who want clearer answers.</h1><a class="jump-link" href="#work">Selected work ↓</a></div><div class="hero-visual" role="img" aria-label="An abstract racing line inspired by a circuit corner"><span>F1 data · 2026</span></div></section>
+      <section class="origin" aria-labelledby="origin-title"><h2 id="origin-title">A learning project that became a product.</h2><p class="body-copy">I build practical analytics products around questions people actually have. My F1 work began as a way to deepen my Python and Power BI practice; it has since grown into a set of dashboards and prediction tools for following a race weekend with more context.</p></section>
+      <section class="project" id="work" aria-labelledby="predictor-title">
+        <div class="project-heading"><p class="eyebrow">Featured project</p><h2 id="predictor-title">F1 2026 Next GP Predictor</h2><p class="project-status">Updated after every Free Practice and Qualifying session.</p></div>
+        <div class="predictor-layout"><div><h3>Inside the model</h3><p class="body-copy">Python-based feature engineering feeds Monte Carlo race simulations, testing thousands of possible race scenarios before the results are presented in Power BI.</p><ol class="numbered-list"><li><strong><span class="number">01</span>Overview</strong>Podium outlook, weather, safety-car context and fastest-lap likelihood.</li><li><strong><span class="number">02</span>Detailed probabilities</strong>Win, podium, fastest-lap and DNF probabilities for every driver.</li><li><strong><span class="number">03</span>Circuit analysis</strong>Track-demand profile and driver suitability at each circuit.</li></ol></div><div><div class="embed-frame"><iframe title="F1 2026 Next GP Predictor" src="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2026" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div></div>
+        <div class="project-notes"><div><h3>What informs a prediction</h3><p>Track characteristics, recent form, driver priors, team pace, tyre behaviour, reliability, weather and safety-car probability.</p></div><div><h3>A living project</h3><p>The model is recalculated through a race weekend, so the probabilities become more useful as new session data arrives.</p></div></div>
+      </section>
+      <section class="supporting" aria-labelledby="explorer-title"><div class="supporting-header"><p class="eyebrow">Supporting project</p><h2 id="explorer-title">F1 2025 Season Explorer</h2><p>A season analysis of the standings, race details and the title fight.</p></div><div class="supporting-layout"><div><div class="embed-frame"><iframe title="F1 2025 Season Explorer" src="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2025" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div><aside class="callout"><h3>Playing F1 Fantasy with your friends? Make your next picks count with GPFantasyPredictor.</h3><a class="button" href="#predictor-title">Try the predictor →</a></aside></div></section>
+      <section class="about-contact" id="about" aria-labelledby="about-title"><div><h2 id="about-title">About</h2><p class="body-copy">I studied Computer Science and Business Management at ISCTE-IUL and BME as an Erasmus exchange student. My career has taken me through IT advisory, data services, business intelligence development and data product ownership across Portugal, Austria and the Netherlands. Different industries, different responsibilities, different geographies—but data is nearly always the thread.</p><p class="quote">The context changes, but the questions data helps us answer are often surprisingly similar.</p></div><div class="contact" id="contact"><h2>Contact</h2><p><a href="mailto:filipe@filipeoliveiraanalytics.com">filipe@filipeoliveiraanalytics.com</a></p><p><a href="https://www.linkedin.com/in/filipeoliveira/" target="_blank" rel="noopener noreferrer">linkedin.com/in/filipeoliveira</a></p></div></section>
+    </main>
+    <footer><span>© <span id="year"></span> Filipe Oliveira</span><span><a href="/privacy.html">Privacy</a> · <a href="/cookies.html">Cookies</a></span></footer>
   </div>
-
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script>
-    // Track clicks on both full screen links (only if analytics cookies accepted)
-    document.addEventListener("DOMContentLoaded", function () {
-      const fsLink2025 = document.getElementById("fullscreenLink");
-      const fsLink2026 = document.getElementById("fullscreenLink2026");
-
-      function trackClick(label) {
-        // Consent is stored by the banner logic above
-        try {
-          if (localStorage.getItem('fo_cookie_consent') !== 'accepted') return;
-        } catch (e) { return; }
-
-        if (typeof gtag === 'function') {
-          gtag('event', 'open_fullscreen_report', {
-            event_category: 'engagement',
-            event_label: label
-          });
-        }
-      }
-
-      if (fsLink2025) {
-        fsLink2025.addEventListener("click", function () {
-          trackClick('Full screen Power BI report clicked (2025)');
-        });
-      }
-
-      if (fsLink2026) {
-        fsLink2026.addEventListener("click", function () {
-          trackClick('Full screen Power BI report clicked (2026)');
-        });
-      }
-    });
+    document.getElementById('year').textContent=new Date().getFullYear();document.addEventListener('DOMContentLoaded',function(){[['fullscreenLink2025','2025'],['fullscreenLink2026','2026']].forEach(function(item){const link=document.getElementById(item[0]);if(link)link.addEventListener('click',function(){try{if(localStorage.getItem('fo_cookie_consent')==='accepted'&&typeof gtag==='function')gtag('event','open_fullscreen_report',{event_category:'engagement',event_label:'Full screen Power BI report clicked ('+item[1]+')'})}catch(error){}})})});
   </script>
 </body>
-
 </html>
