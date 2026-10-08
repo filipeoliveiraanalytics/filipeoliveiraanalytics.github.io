@@ -51,7 +51,7 @@
     .project-heading .eyebrow::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px rgba(23,111,120,.13); }
     .live-label { display:inline-block; width:0; overflow:hidden; white-space:nowrap; vertical-align:bottom; animation:typeLive 1.25s steps(12,end) .2s forwards; }
     .live-label::after { content:"|"; display:inline-block; margin-left:2px; animation:blinkCursor .75s step-end infinite; }
-    @keyframes typeLive { to { width:12ch; } }
+    @keyframes typeLive { to { width:14ch; } }
     @keyframes blinkCursor { 50% { opacity:0; } }
     .project-heading h2 { margin:0 0 9px; font-size:clamp(2.6rem,4.5vw,4rem); line-height:1; }
     .project-status { margin:0; font-size:1rem; }
@@ -110,7 +110,7 @@
     @media (max-width:1100px) { .predictor-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr)}.supporting-layout{grid-template-columns:minmax(0,1.55fr) minmax(200px,.45fr)} }
     @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.hero-video{width:100%;justify-self:stretch}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.predictor-layout > div:last-child,.supporting-layout > div:first-child{width:100%}.embed-frame iframe,.supporting .embed-frame iframe{height:auto;aspect-ratio:3 / 2}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
     @media (max-width:410px) { .nav{gap:12px}h1{font-size:2.9rem} }
-    @media (prefers-reduced-motion:reduce) { .live-label { width:12ch; animation:none; }.live-label::after { animation:none; } }
+    @media (prefers-reduced-motion:reduce) { .live-label { width:14ch; animation:none; }.live-label::after { animation:none; } }
   </style>
   <script>
     (function(){const key='fo_cookie_consent',id='G-NN7QRXXCNH';window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};function load(){if(window.__ga_loaded)return;window.__ga_loaded=true;const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);document.head.appendChild(script);window.gtag('js',new Date());window.gtag('config',id,{allow_google_signals:false,allow_ad_personalization_signals:false})}function banner(show){const el=document.getElementById('cookieBanner');if(el)el.style.display=show?'block':'none'}window.__cookieConsent={accept:function(){localStorage.setItem(key,'accepted');banner(false);load()},reject:function(){localStorage.setItem(key,'rejected');banner(false)},reset:function(){localStorage.removeItem(key);banner(true)}};document.addEventListener('DOMContentLoaded',function(){const choice=localStorage.getItem(key);if(choice==='accepted')load();else if(!choice)banner(true)})})();
