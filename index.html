@@ -33,18 +33,18 @@
     .nav { display:flex; gap:37px; font-size:.9rem; }
     .nav a { padding:8px 0; border-bottom:1px solid transparent; }
     .nav a:hover { border-color:var(--teal); color:var(--teal); }
-    .hero { display:grid; grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr); align-items:center; gap:58px; min-height:490px; border-bottom:1px solid var(--line); }
+    .hero { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr); align-items:center; gap:58px; padding:64px 0; border-bottom:1px solid var(--line); }
     .eyebrow { margin:0 0 20px; color:var(--teal); font-size:.69rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
     h1,h2,h3 { font-family:var(--serif); font-weight:400; letter-spacing:-.026em; }
     h1 { max-width:630px; margin:0; font-size:clamp(3rem,5vw,4.55rem); line-height:.99; }
-    .jump-link { display:inline-block; margin-top:34px; color:var(--teal); font-size:.95rem; }
+    .hero-origin { display:grid; grid-template-columns:minmax(150px,.67fr) minmax(0,1.33fr); gap:26px; margin-top:38px; padding-top:27px; border-top:1px solid var(--line); }
+    .hero-origin h2 { margin:0; font-size:clamp(1.55rem,2.35vw,2.15rem); line-height:1.06; }
+    .hero-origin .body-copy { font-size:.9rem; line-height:1.55; }
+    .jump-link { display:inline-block; margin-top:27px; color:var(--teal); font-size:.95rem; }
     .jump-link:hover,.report-link:hover { text-decoration:underline; text-underline-offset:4px; }
-    .hero-visual { position:relative; min-height:365px; overflow:hidden; background:#ded9d0; }
-    .hero-visual::before { content:""; position:absolute; inset:0; background:linear-gradient(142deg,transparent 0 38%,rgba(74,75,70,.78) 38.2% 40.5%,transparent 40.8% 100%),linear-gradient(161deg,transparent 0 59%,rgba(102,100,90,.5) 59.2% 61.2%,transparent 61.5%); }
-    .hero-visual::after { content:""; position:absolute; width:128%; height:93%; left:-42%; top:28%; border:39px solid rgba(54,55,51,.84); border-right:0; border-bottom:0; border-radius:0 260px 0 0; transform:rotate(-13deg); }
-    .hero-visual span { position:absolute; z-index:1; bottom:20px; left:22px; color:rgba(255,255,255,.87); font-size:.67rem; letter-spacing:.14em; text-transform:uppercase; }
-    .origin { display:grid; grid-template-columns:minmax(230px,.78fr) minmax(0,1.22fr); gap:58px; padding:64px 0 66px; border-bottom:1px solid var(--line); }
-    .origin h2 { margin:0; font-size:clamp(2rem,3.3vw,2.85rem); line-height:1.04; }
+    .hero-media { overflow:hidden; min-height:460px; border:1px solid var(--line); background:#ebe8e2; }
+    .hero-media iframe { display:block; width:100%; height:540px; border:0; }
+    .video-fallback { display:block; padding:18px; color:var(--teal); font-size:.85rem; }
     .body-copy { max-width:650px; margin:0; color:var(--muted); font-size:1.04rem; line-height:1.6; }
     .project { padding:70px 0 69px; border-bottom:1px solid var(--line); }
     .project-heading { margin-bottom:40px; }
@@ -91,7 +91,7 @@
     .cookie-actions .cookie-accept { background:var(--dark); color:#fff; }
     .cookie-actions button:hover { background:var(--teal); border-color:var(--teal); color:#fff; }
     @media (max-width:1100px) { .predictor-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr)}.supporting-layout{grid-template-columns:minmax(0,1.55fr) minmax(200px,.45fr)} }
-    @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.origin,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0;min-height:auto}.hero-visual{min-height:260px}.origin,.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.embed-frame iframe,.supporting .embed-frame iframe{height:430px}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
+    @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.hero-origin{grid-template-columns:1fr;gap:14px;margin-top:30px}.hero-media{min-height:420px}.hero-media iframe{height:510px}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.embed-frame iframe,.supporting .embed-frame iframe{height:430px}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
     @media (max-width:410px) { .nav{gap:12px}h1{font-size:2.9rem}.embed-frame iframe,.supporting .embed-frame iframe{height:350px} }
   </style>
   <script>
@@ -107,8 +107,7 @@
   <div class="page">
     <header class="site-header"><a class="brand" href="#top" aria-label="Filipe Oliveira home">Filipe Oliveira</a><nav class="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">Filipe Oliveira's portfolio</p><h1 id="hero-title">Data products for people who want clearer answers.</h1><a class="jump-link" href="#work">Selected work ↓</a></div><div class="hero-visual" role="img" aria-label="An abstract racing line inspired by a circuit corner"><span>F1 data · 2026</span></div></section>
-      <section class="origin" aria-labelledby="origin-title"><h2 id="origin-title">A learning project that became a product.</h2><p class="body-copy">I build practical analytics products around questions people actually have. My F1 work began as a way to deepen my Python and Power BI practice; it has since grown into a set of dashboards and prediction tools for following a race weekend with more context.</p></section>
+      <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">Filipe Oliveira's portfolio</p><h1 id="hero-title">Data products for people who want clearer answers.</h1><div class="hero-origin"><h2>A learning project that became a product.</h2><p class="body-copy">I build practical analytics products around questions people actually have. My F1 work began as a way to deepen my Python and Power BI practice; it has since grown into a set of dashboards and prediction tools for following a race weekend with more context.</p></div><a class="jump-link" href="#work">Selected work ↓</a></div><div class="hero-media"><iframe title="F1 prediction video by Filipe Oliveira" src="https://platform.twitter.com/embed/Tweet.html?id=2065386895513702904&amp;dnt=true" loading="eager" allowfullscreen="true"><a class="video-fallback" href="https://x.com/Filipe_R_O/status/2065386895513702904/video/1" target="_blank" rel="noopener noreferrer">Watch the F1 prediction video on X →</a></iframe></div></section>
       <section class="project" id="work" aria-labelledby="predictor-title">
         <div class="project-heading"><p class="eyebrow">Featured project</p><h2 id="predictor-title">F1 2026 Next GP Predictor</h2><p class="project-status">Updated after every Free Practice and Qualifying session.</p></div>
         <div class="predictor-layout"><div><h3>Inside the model</h3><p class="body-copy">Python-based feature engineering feeds Monte Carlo race simulations, testing thousands of possible race scenarios before the results are presented in Power BI.</p><ol class="numbered-list"><li><strong><span class="number">01</span>Overview</strong>Podium outlook, weather, safety-car context and fastest-lap likelihood.</li><li><strong><span class="number">02</span>Detailed probabilities</strong>Win, podium, fastest-lap and DNF probabilities for every driver.</li><li><strong><span class="number">03</span>Circuit analysis</strong>Track-demand profile and driver suitability at each circuit.</li></ol></div><div><div class="embed-frame"><iframe title="F1 2026 Next GP Predictor" src="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2026" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div></div>
