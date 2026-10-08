@@ -49,9 +49,9 @@
     .project-heading { margin-bottom:40px; }
     .project-heading .eyebrow { display:flex; align-items:center; gap:8px; margin-bottom:13px; }
     .project-heading .eyebrow::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px rgba(23,111,120,.13); }
-    .live-label { display:inline-block; width:0; overflow:hidden; white-space:nowrap; vertical-align:bottom; animation:typeLive 1.25s steps(12,end) .2s forwards; }
+    .live-label { display:inline-block; white-space:nowrap; vertical-align:bottom; clip-path:inset(0 100% 0 0); animation:typeLive 1.25s steps(12,end) .2s forwards; }
     .live-label::after { content:"|"; display:inline-block; margin-left:2px; animation:blinkCursor .75s step-end infinite; }
-    @keyframes typeLive { to { width:14ch; } }
+    @keyframes typeLive { to { clip-path:inset(0 0 0 0); } }
     @keyframes blinkCursor { 50% { opacity:0; } }
     .project-heading h2 { margin:0 0 9px; font-size:clamp(2.6rem,4.5vw,4rem); line-height:1; }
     .project-status { margin:0; font-size:1rem; }
@@ -84,6 +84,9 @@
     .about-contact h2 { margin:0 0 13px; font-size:2rem; }
     .about-contact .body-copy { font-size:.9rem; line-height:1.62; }
     .contact { padding-left:23px; border-left:1px solid var(--line); }
+    .contact-heading { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+    .contact-heading h2 { margin:0; }
+    .profile-photo { width:78px; height:78px; border-radius:50%; border:2px solid var(--paper); box-shadow:0 0 0 1px var(--teal); object-fit:cover; }
     .contact p { margin:0 0 11px; font-size:.86rem; }
     .contact a { color:var(--teal); }
     .contact a:hover,footer a:hover { text-decoration:underline; text-underline-offset:3px; }
@@ -110,7 +113,7 @@
     @media (max-width:1100px) { .predictor-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr)}.supporting-layout{grid-template-columns:minmax(0,1.55fr) minmax(200px,.45fr)} }
     @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.hero-video{width:100%;justify-self:stretch}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.predictor-layout > div:last-child,.supporting-layout > div:first-child{width:100%}.embed-frame iframe,.supporting .embed-frame iframe{height:auto;aspect-ratio:3 / 2}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
     @media (max-width:410px) { .nav{gap:12px}h1{font-size:2.9rem} }
-    @media (prefers-reduced-motion:reduce) { .live-label { width:14ch; animation:none; }.live-label::after { animation:none; } }
+    @media (prefers-reduced-motion:reduce) { .live-label { clip-path:none; animation:none; }.live-label::after { animation:none; } }
   </style>
   <script>
     (function(){const key='fo_cookie_consent',id='G-NN7QRXXCNH';window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};function load(){if(window.__ga_loaded)return;window.__ga_loaded=true;const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);document.head.appendChild(script);window.gtag('js',new Date());window.gtag('config',id,{allow_google_signals:false,allow_ad_personalization_signals:false})}function banner(show){const el=document.getElementById('cookieBanner');if(el)el.style.display=show?'block':'none'}window.__cookieConsent={accept:function(){localStorage.setItem(key,'accepted');banner(false);load()},reject:function(){localStorage.setItem(key,'rejected');banner(false)},reset:function(){localStorage.removeItem(key);banner(true)}};document.addEventListener('DOMContentLoaded',function(){const choice=localStorage.getItem(key);if(choice==='accepted')load();else if(!choice)banner(true)})})();
@@ -132,7 +135,7 @@
         <div class="project-notes"><div><h3>What informs a prediction</h3><p>Track characteristics, recent form, driver priors, team pace, tyre behaviour, reliability, weather and safety-car probability.</p></div><div><h3>A living project</h3><p>The model is recalculated through a race weekend, so the probabilities become more useful as new session data arrives.</p></div></div>
       </section>
       <section class="supporting" aria-labelledby="explorer-title"><div class="supporting-header"><p class="eyebrow">Supporting project</p><h2 id="explorer-title">F1 2025 Season Explorer</h2><p>A season analysis of the standings, race details and the title fight.</p></div><div class="supporting-layout"><div><div class="embed-frame"><iframe title="F1 2025 Season Explorer" src="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2025" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div><aside class="callout"><h3>Playing F1 Fantasy with your friends? Make your next picks count with GPFantasyPredictor.</h3><button class="button" id="openFantasyPredictor" type="button">Try the predictor →</button></aside></div></section>
-      <section class="about-contact" id="about" aria-labelledby="about-title"><div><h2 id="about-title">About</h2><p class="body-copy">I studied Computer Science and Business Management at ISCTE-IUL and BME as an Erasmus exchange student. My career has taken me through IT advisory, data services, business intelligence development and data product ownership across Portugal, Austria and the Netherlands. Different industries, different responsibilities, different geographies—but data is nearly always the thread.</p></div><div class="contact" id="contact"><h2>Contact</h2><p><a href="mailto:filipe@filipeoliveiraanalytics.com">filipe@filipeoliveiraanalytics.com</a></p><p><a href="https://www.linkedin.com/in/filipeoliveira/" target="_blank" rel="noopener noreferrer">linkedin.com/in/filipeoliveira</a></p></div></section>
+      <section class="about-contact" id="about" aria-labelledby="about-title"><div><h2 id="about-title">About</h2><p class="body-copy">I studied Computer Science and Business Management at ISCTE-IUL and BME as an Erasmus exchange student. My career has taken me through IT advisory, data services, business intelligence development and data product ownership across Portugal, Austria and the Netherlands. Different industries, different responsibilities, different geographies—but data is nearly always the thread.</p></div><div class="contact" id="contact"><div class="contact-heading"><img class="profile-photo" src="assets/filipe-oliveira-profile.png" alt="Filipe Oliveira" /><h2>Contact</h2></div><p><a href="mailto:filipe@filipeoliveiraanalytics.com">filipe@filipeoliveiraanalytics.com</a></p><p><a href="https://www.linkedin.com/in/filipeoliveira/" target="_blank" rel="noopener noreferrer">linkedin.com/in/filipeoliveira</a></p></div></section>
     </main>
     <footer><span>© <span id="year"></span> Filipe Oliveira</span><span><a href="/privacy.html">Privacy</a> · <a href="/cookies.html">Cookies</a></span></footer>
   </div>
