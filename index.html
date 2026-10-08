@@ -28,7 +28,7 @@
     a:focus-visible,button:focus-visible { outline:2px solid var(--teal); outline-offset:4px; }
     .top-strip { height:5px; background:var(--dark); }
     .page { max-width:1320px; margin:0 auto; padding:0 28px 20px; }
-    .site-header { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); min-height:77px; }
+    .site-header { position:sticky; top:0; z-index:4; display:flex; align-items:center; justify-content:space-between; min-height:77px; border-bottom:1px solid var(--line); background:var(--paper); }
     .brand { font:400 1.62rem/1 var(--serif); letter-spacing:-.02em; }
     .nav { display:flex; gap:37px; font-size:.9rem; }
     .nav a { padding:8px 0; border-bottom:1px solid transparent; }
@@ -49,6 +49,10 @@
     .project-heading { margin-bottom:40px; }
     .project-heading .eyebrow { display:flex; align-items:center; gap:8px; margin-bottom:13px; }
     .project-heading .eyebrow::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px rgba(23,111,120,.13); }
+    .live-label { display:inline-block; width:0; overflow:hidden; white-space:nowrap; vertical-align:bottom; animation:typeLive 1.25s steps(12,end) .2s forwards; }
+    .live-label::after { content:"|"; display:inline-block; margin-left:2px; animation:blinkCursor .75s step-end infinite; }
+    @keyframes typeLive { to { width:12ch; } }
+    @keyframes blinkCursor { 50% { opacity:0; } }
     .project-heading h2 { margin:0 0 9px; font-size:clamp(2.6rem,4.5vw,4rem); line-height:1; }
     .project-status { margin:0; font-size:1rem; }
     .predictor-layout { display:grid; grid-template-columns:minmax(260px,.53fr) minmax(650px,1.47fr); gap:54px; align-items:start; }
@@ -83,6 +87,7 @@
     .contact p { margin:0 0 11px; font-size:.86rem; }
     .contact a { color:var(--teal); }
     .contact a:hover,footer a:hover { text-decoration:underline; text-underline-offset:3px; }
+    section[id] { scroll-margin-top:96px; }
     footer { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 80px 0; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; }
     .cookie-banner { position:fixed; z-index:5; bottom:20px; left:50%; display:none; width:min(530px,calc(100% - 32px)); padding:22px; transform:translateX(-50%); background:var(--paper); border:1px solid var(--ink); box-shadow:0 12px 30px rgba(41,35,31,.18); }
     .cookie-banner p { margin:0; color:var(--ink); font-size:.86rem; line-height:1.5; }
@@ -105,6 +110,7 @@
     @media (max-width:1100px) { .predictor-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr)}.supporting-layout{grid-template-columns:minmax(0,1.55fr) minmax(200px,.45fr)} }
     @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.hero-video{width:100%;justify-self:stretch}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.predictor-layout > div:last-child,.supporting-layout > div:first-child{width:100%}.embed-frame iframe,.supporting .embed-frame iframe{height:auto;aspect-ratio:3 / 2}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
     @media (max-width:410px) { .nav{gap:12px}h1{font-size:2.9rem} }
+    @media (prefers-reduced-motion:reduce) { .live-label { width:12ch; animation:none; }.live-label::after { animation:none; } }
   </style>
   <script>
     (function(){const key='fo_cookie_consent',id='G-NN7QRXXCNH';window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};function load(){if(window.__ga_loaded)return;window.__ga_loaded=true;const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);document.head.appendChild(script);window.gtag('js',new Date());window.gtag('config',id,{allow_google_signals:false,allow_ad_personalization_signals:false})}function banner(show){const el=document.getElementById('cookieBanner');if(el)el.style.display=show?'block':'none'}window.__cookieConsent={accept:function(){localStorage.setItem(key,'accepted');banner(false);load()},reject:function(){localStorage.setItem(key,'rejected');banner(false)},reset:function(){localStorage.removeItem(key);banner(true)}};document.addEventListener('DOMContentLoaded',function(){const choice=localStorage.getItem(key);if(choice==='accepted')load();else if(!choice)banner(true)})})();
@@ -121,7 +127,7 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">Filipe Oliveira's portfolio</p><h1 id="hero-title">A learning project that became a product.</h1><p class="hero-summary body-copy">I build practical analytics products around questions people actually have. My F1 work began as a way to deepen my Python and Power BI practice; it has since grown into a set of dashboards and prediction tools for following a race weekend with more context.</p></div><div class="hero-video"><video autoplay muted loop playsinline controls preload="auto" aria-label="Behind the scenes of the F1 GP Predictor"><source src="assets/f1-predictor-behind-the-scenes-web.mp4" type="video/mp4" /><p>Your browser does not support embedded video. <a href="assets/f1-predictor-behind-the-scenes-web.mp4">Watch the video</a>.</p></video></div></section>
       <section class="project" id="work" aria-labelledby="predictor-title">
-        <div class="project-heading"><p class="eyebrow">Live project</p><h2 id="predictor-title">F1 2026 Next GP Predictor</h2><p class="project-status">Updated after every Free Practice and Qualifying session.</p></div>
+        <div class="project-heading"><p class="eyebrow"><span class="live-label">Live project</span></p><h2 id="predictor-title">F1 2026 Next GP Predictor</h2><p class="project-status">Updated after every Free Practice and Qualifying session.</p></div>
         <div class="predictor-layout"><div><h3>Inside the model</h3><p class="body-copy">Python-based feature engineering feeds Monte Carlo race simulations, testing thousands of possible race scenarios before the results are presented in Power BI.</p><ol class="numbered-list"><li><strong><span class="number">01</span>Overview</strong>Podium outlook, weather, safety-car context and fastest-lap likelihood.</li><li><strong><span class="number">02</span>Detailed probabilities</strong>Win, podium, fastest-lap and DNF probabilities for every driver.</li><li><strong><span class="number">03</span>Circuit analysis</strong>Track-demand profile and driver suitability at each circuit.</li><li><strong><span class="number">04</span>Predictions vs actual results</strong>Compare the model's predictions with race outcomes across three analysis modes.</li></ol></div><div><div class="embed-frame"><iframe title="F1 2026 Next GP Predictor" src="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2026" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div></div>
         <div class="project-notes"><div><h3>What informs a prediction</h3><p>Track characteristics, recent form, driver priors, team pace, tyre behaviour, reliability, weather and safety-car probability.</p></div><div><h3>A living project</h3><p>The model is recalculated through a race weekend, so the probabilities become more useful as new session data arrives.</p></div></div>
       </section>
