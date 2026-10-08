@@ -38,8 +38,8 @@
     h1,h2,h3 { font-family:var(--serif); font-weight:400; letter-spacing:-.026em; }
     h1 { max-width:760px; margin:0; font-size:clamp(3rem,5vw,4.55rem); line-height:.99; }
     .hero-summary.body-copy { max-width:650px; margin-top:48px; }
-    .hero-video { overflow:hidden; border:1px solid var(--line); background:#171717; }
-    .hero-video video { display:block; width:100%; aspect-ratio:16 / 9; background:#171717; object-fit:contain; }
+    .hero-video { width:92%; justify-self:end; overflow:hidden; border:1px solid var(--line); background:#171717; }
+    .hero-video video { display:block; width:100%; aspect-ratio:16 / 9; background:#171717; object-fit:cover; object-position:center; }
     .hero-video p { margin:0; padding:18px; color:#fff; font-size:.85rem; }
     .hero-video a { color:#fff; text-decoration:underline; }
     .jump-link { display:inline-block; margin-top:27px; color:var(--teal); font-size:.95rem; }
@@ -47,10 +47,12 @@
     .body-copy { max-width:650px; margin:0; color:var(--muted); font-size:1.04rem; line-height:1.6; }
     .project { padding:70px 0 69px; border-bottom:1px solid var(--line); }
     .project-heading { margin-bottom:40px; }
-    .project-heading .eyebrow { margin-bottom:13px; }
+    .project-heading .eyebrow { display:flex; align-items:center; gap:8px; margin-bottom:13px; }
+    .project-heading .eyebrow::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px rgba(23,111,120,.13); }
     .project-heading h2 { margin:0 0 9px; font-size:clamp(2.6rem,4.5vw,4rem); line-height:1; }
     .project-status { margin:0; font-size:1rem; }
     .predictor-layout { display:grid; grid-template-columns:minmax(260px,.53fr) minmax(650px,1.47fr); gap:54px; align-items:start; }
+    .predictor-layout > div:last-child { width:94%; justify-self:end; }
     h3 { margin:0 0 14px; font-size:1.7rem; }
     .numbered-list { list-style:none; padding:10px 0 0; margin:0; }
     .numbered-list li { margin:0 0 17px; color:var(--muted); font-size:.93rem; line-height:1.42; }
@@ -68,6 +70,7 @@
     .supporting-header h2 { margin:0 0 6px; font-size:clamp(2rem,3.6vw,3rem); line-height:1; }
     .supporting-header p { margin:0; color:var(--muted); font-size:.9rem; }
     .supporting-layout { display:grid; grid-template-columns:minmax(650px,1.55fr) minmax(230px,.45fr); align-items:center; gap:54px; }
+    .supporting-layout > div:first-child { width:94%; }
     .supporting .embed-frame iframe { height:auto; aspect-ratio:3 / 2; }
     .callout { padding-left:23px; border-left:1px solid var(--line); }
     .callout h3 { font-size:1.55rem; line-height:1.08; }
@@ -100,7 +103,7 @@
     .predictor-modal iframe { display:block; width:100%; height:calc(100% - 66px); border:0; background:#fff; }
     @media (max-width:1200px) { .hero{grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr)} }
     @media (max-width:1100px) { .predictor-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr)}.supporting-layout{grid-template-columns:minmax(0,1.55fr) minmax(200px,.45fr)} }
-    @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.embed-frame iframe,.supporting .embed-frame iframe{height:auto;aspect-ratio:3 / 2}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
+    @media (max-width:760px) { .page{padding:0 20px 20px}.site-header{min-height:67px}.brand{font-size:1.35rem}.nav{gap:17px;font-size:.79rem}.hero,.predictor-layout,.supporting-layout,.about-contact{grid-template-columns:1fr}.hero{gap:33px;padding:55px 0}.hero-video{width:100%;justify-self:stretch}.about-contact{gap:26px;padding:46px 0}.project,.supporting{padding:50px 0}.project-heading{margin-bottom:30px}.predictor-layout,.supporting-layout{gap:30px}.predictor-layout > div:last-child,.supporting-layout > div:first-child{width:100%}.embed-frame iframe,.supporting .embed-frame iframe{height:auto;aspect-ratio:3 / 2}.project-notes{grid-template-columns:1fr;gap:22px}.contact{padding:26px 0 0;border-left:0;border-top:1px solid var(--line)}footer{padding:18px 0 0;align-items:flex-start;flex-direction:column;gap:8px} }
     @media (max-width:410px) { .nav{gap:12px}h1{font-size:2.9rem} }
   </style>
   <script>
@@ -118,8 +121,8 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">Filipe Oliveira's portfolio</p><h1 id="hero-title">A learning project that became a product.</h1><p class="hero-summary body-copy">I build practical analytics products around questions people actually have. My F1 work began as a way to deepen my Python and Power BI practice; it has since grown into a set of dashboards and prediction tools for following a race weekend with more context.</p></div><div class="hero-video"><video autoplay muted loop playsinline controls preload="auto" aria-label="Behind the scenes of the F1 GP Predictor"><source src="assets/f1-predictor-behind-the-scenes-web.mp4" type="video/mp4" /><p>Your browser does not support embedded video. <a href="assets/f1-predictor-behind-the-scenes-web.mp4">Watch the video</a>.</p></video></div></section>
       <section class="project" id="work" aria-labelledby="predictor-title">
-        <div class="project-heading"><p class="eyebrow">Featured project</p><h2 id="predictor-title">F1 2026 Next GP Predictor</h2><p class="project-status">Updated after every Free Practice and Qualifying session.</p></div>
-        <div class="predictor-layout"><div><h3>Inside the model</h3><p class="body-copy">Python-based feature engineering feeds Monte Carlo race simulations, testing thousands of possible race scenarios before the results are presented in Power BI.</p><ol class="numbered-list"><li><strong><span class="number">01</span>Overview</strong>Podium outlook, weather, safety-car context and fastest-lap likelihood.</li><li><strong><span class="number">02</span>Detailed probabilities</strong>Win, podium, fastest-lap and DNF probabilities for every driver.</li><li><strong><span class="number">03</span>Circuit analysis</strong>Track-demand profile and driver suitability at each circuit.</li></ol></div><div><div class="embed-frame"><iframe title="F1 2026 Next GP Predictor" src="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2026" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div></div>
+        <div class="project-heading"><p class="eyebrow">Live project</p><h2 id="predictor-title">F1 2026 Next GP Predictor</h2><p class="project-status">Updated after every Free Practice and Qualifying session.</p></div>
+        <div class="predictor-layout"><div><h3>Inside the model</h3><p class="body-copy">Python-based feature engineering feeds Monte Carlo race simulations, testing thousands of possible race scenarios before the results are presented in Power BI.</p><ol class="numbered-list"><li><strong><span class="number">01</span>Overview</strong>Podium outlook, weather, safety-car context and fastest-lap likelihood.</li><li><strong><span class="number">02</span>Detailed probabilities</strong>Win, podium, fastest-lap and DNF probabilities for every driver.</li><li><strong><span class="number">03</span>Circuit analysis</strong>Track-demand profile and driver suitability at each circuit.</li><li><strong><span class="number">04</span>Predictions vs actual results</strong>Compare the model's predictions with race outcomes across three analysis modes.</li></ol></div><div><div class="embed-frame"><iframe title="F1 2026 Next GP Predictor" src="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2026" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiOGIwOTE4MTQtZjI0ZS00NmI0LTk4YWItY2ViYWZiMDUzNjE2IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div></div>
         <div class="project-notes"><div><h3>What informs a prediction</h3><p>Track characteristics, recent form, driver priors, team pace, tyre behaviour, reliability, weather and safety-car probability.</p></div><div><h3>A living project</h3><p>The model is recalculated through a race weekend, so the probabilities become more useful as new session data arrives.</p></div></div>
       </section>
       <section class="supporting" aria-labelledby="explorer-title"><div class="supporting-header"><p class="eyebrow">Supporting project</p><h2 id="explorer-title">F1 2025 Season Explorer</h2><p>A season analysis of the standings, race details and the title fight.</p></div><div class="supporting-layout"><div><div class="embed-frame"><iframe title="F1 2025 Season Explorer" src="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" allowfullscreen="true" loading="lazy"></iframe></div><a id="fullscreenLink2025" class="report-link" href="https://app.powerbi.com/view?r=eyJrIjoiZmYyZGUyMzAtNDU4ZC00MGQ3LWFmNTQtNDVhOGFjMzAxN2U0IiwidCI6IjQ0YWUzMWZmLWQwYzctNGFiZC05OWRlLTg5Y2JjYjU3Y2NhZiIsImMiOjl9" target="_blank" rel="noopener noreferrer">Open the report in full screen →</a></div><aside class="callout"><h3>Playing F1 Fantasy with your friends? Make your next picks count with GPFantasyPredictor.</h3><button class="button" id="openFantasyPredictor" type="button">Try the predictor →</button></aside></div></section>
